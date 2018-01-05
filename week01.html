@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<title>Low Poly Game Art</title>
+    
+<link href="css/site.css" media="all" rel="stylesheet" type="text/css" />
+<link href="css/highlight.default.css" media="all" rel="stylesheet" type="text/css" />
+  
+<script src="js/jquery.js"></script>
+<script src="js/showdown.js" type="text/javascript"></script>
+
+<link rel="icon" type="image/x-icon" href="favicon.ico" />
+</head>
+<body>
+<!--
+Write the markdown code below.
+A guide to markdown syntax is at http://daringfireball.net/projects/markdown/
+-->
+
+<div style="display: none" id="sourcetext">
+
+# Introduction
+- Course overview   
+	- Members
+	- Outline
+- Class characteristics  	
+- Low Poly  
+- Maya 2018 
+	- Maya's unique functionality  
+	- Maya installation  
+- Low poly group project: Cityscape in Toronto 	 
+- Assignment  	
+	
+_________________
+# Class characteristics
+
+- Maximum growth through individual and group projects
+	- Easy to share information by multiple communication channels and tags 
+	- Cooperation over competition
+	- Flow and flexibility
+	- Diversity and building blocks: game as art, art as game
+	- Focus and efficiency  
+	
+	![top](img/jholland.png)  
+	from John Holland, *Hidden Order*, 1995
+
+- Tutorials and help from peers and the instructor
+	- Main resources will be **lynda.com** and **Safari online books**.	
+	
+# Low Poly  
+
+In the early days of 3D games, the number of polygons was a much more critical issue for the real-time medium. The calculation power of hardware was pretty limited. Each game object should have the lowest number of geometric faces for the game to run smoothly and fast. For example, a character in the original Quake from id Software, published in 1996, was constructed using 200 polygons (many modern games spend more than ten thousand tris). Nowadays, in many cases low poly graphics are no longer so necessary, however in some cases (e.g. for VR) there are still important benefits. Moreover, low poly is an approach to present 3D models in an interesting visual way; a unique visual style with low complexity, hand-made, retro, and other flavours. 
+Reference: Adam Watkins, *Creating Games with Unity and Maya*, Focal Press, 2012.
+
+- [Evolution of Video Game Graphics 1952 - 2015, 5:32~12:47](https://www.youtube.com/watch?v=xKVS_81Op5A)  
+
+## The "Low Poly" Aesthetic
+
+- Small numbers of tris and quads 3D polygon model.  
+- Characteristic: No smooth curves (simpler look), hard edges (showing distinctive faces). 
+- Stylistic approach over realism, however often it weighs heavily on realistic lighting (often physically based) and on texture details (with large textures).  
+- Important features: Polycount matters and (manifold) topology is critical (quads are more intuitive).
+
+### Inspiration
+- [Monument Valley I & II](https://www.monumentvalleygame.com/mv1)  
+- [Journey & Sky](http://thatgamecompany.com/journey/)  
+- [Everything by David Oreilly](http://www.davidoreilly.com/) 
+- [Trip trailer by Axel Shokk, 2012](https://vimeo.com/45813147)  
+- [Ian Cheng](https://vimeo.com/iancheng)
+
+
+### Reference images
+
+- [Pinterest Low poly image collection I](https://www.pinterest.ca/jihn75/lowpoly/)  
+- [Pinterest Low poly image collection II](https://www.pinterest.ca/jihn75/3d-modeling/) 
+
+## The "Low Poly" Technique
+- Create 3D low poly modeling.
+- Polygon decimation and optimization for real time applications (Manifold topology)
+- Shading and baking textures  
+- Texturing and UV mapping 
+- Rendering (local vs. global illumination) 
+- Export 3D model for game engines
+- Level of detail (LoD)
+- No visual effects, rigging, animation in this class
+
+# Chosen tool: Maya 2018
+
+## Why Maya? Its unique functionalities
+
+Maya is a 3D computer graphics application, and one of the most widely used to create interactive 3D applications, including video games, animated film, TV series, visual effects, architecture, academic and science research, and more. Maya enjoys a preeminent status in top-end 3D animation work, and has received an Academy Award. Through the Maya GUI and programmable extensions, users define a virtual workspace (scenes) to implement and edit media of a particular project. Scene elements are node-based, each node having its own attributes and customization. The output is usually 3D model assets and rendered images. 
+
+Reference: *"MAYA's Programmability"* from David Gould, *Complete Maya Programming: An Extensive Guide to MEL and the C++ API*, Morgan Kaufmann, 2003	
+
+### Customization 
+
+**The entire Maya graphical user interface (GUI) is written and controlled using MEL, the Maya Embedded Language.** The creation, editing, and deletion of all the graphical user interface elements is done using the MEL language. It then follows that **you too can control the Maya interface by using MEL**. In fact you can entirely replace the standard Maya interface by using your own MEL scripts. There is often a need for specialized customization of parts of Maya's interface. For instance, you may want to develop a particular interface that allows animators to set keys without their having to learn the Channel Box or other Graph Editor.  
+
+In addition to the user interface, you can customize Maya's internal settings. Using MEL you can make changes to Maya's settings on a per project or on a systemwide basis. For instance, you can ensure that all users consistently use the same time, angle, and linear units. Alternatively, any users that open a particular project can have specific settings applied at that time. 
+	
+### Extensions 
+
+While Maya boasts a very extensive feature set, **there will always be a need for custom tools and features. Fortunately Maya allows you to add your own features and functionality**. These features can also be made to work seamlessly with the rest of Maya. From the user's perspective, the tools that you create appear no different from the standard Maya tools. Using MEL and C++ (and Python) you can create large and extensive extensions to the Maya package.
+
+There are few limits on what functionality you can extend. Maya allows you to create custom shaders, dynamics, particles, deformers, and animation controllers, to name a few. In fact the extensions you create can be integrated directly into the Dependency Graph, the very heart of Maya. Once integrated, the functionality can be accessed in the same manner that standard Maya features are accessed.	
+	
+### Integration 
+
+Often Maya isn't the only package used in a production environment. Only some of its features may be used, while other packages are used for specific tasks. Therefore, **there is a need to pass data into and out of Maya from these external packages**. While Maya comes standard with features to export and import certain data formats, **the programming interfaces allow you to write custom data exporters and importers.** These are also known as translators, since they translate data from one package into a form that is understandable to another. Since Maya provides access to the entire scene and all its data, you can output this data in any form you require. **A common requirement, for a games company, is to take the Maya assets (models, animation, and so on) and convert them into a form that is readily usable by a given games engine.** 
+
+Maya's functionality can also be compiled into a stand-alone application. This way you can use a mix of Maya and custom programming code to provide a complete application solution. 	
+	
+### Automation 
+
+Many tasks are often continually repeated. Programming is well suited to automating repetitive tasks. Rather than have the user repeat the task each time by hand, a MEL script can be written that completely automates it. Whether it be the application of a shading network, the positioning of objects, or just about any task that is completed more than once, it can be automated. In fact with the generalization that programming offers, you can have your script perform different tasks depending on the current context. For instance, a series of objects can be made to stick on top or bottom of another automatically without requiring the user to manually position each object individually. 
+	
+## Maya installation. 
+
+- Installing Maya
+	- Go to [autodesk.com/education/free-software/maya](https://www.autodesk.com/education/free-software/maya). If you don't have an account yet, make one for yourself. 
+	- Choose the version of Maya (2018 recommended) and the right platform and language, download the Maya program. 		
+
+- Check out [Maya tutorials](https://knowledge.autodesk.com/support/maya/learn-explore/caas/simplecontent/content/maya-tutorials.html) and [Autodesk Knowledge Network: Maya](https://knowledge.autodesk.com/support/maya) page.  
+
+## Low Poly group project: Cityscape in Toronto 
+
+Find a unique cityscape near school and bring its address and images (photos and sketches). Pick a small area. Imagine and analyze how to create low poly game arts from your choice. 
+
+### 3D production pipelines
+
+- [INTM 3D class note](https://jiharu.github.io/intm3d/week09.html) 
+	- Pre-production
+		- Story and visual design.
+	- Production
+		- Modeling, texturing, rigging, animation, visual effects, lighting and rendering. 
+	- Post-production	 
+		- Compositing
+___________________________________
+# Assignment
+## Action items
+- Installing Maya 2018.  
+- Making a Toronto public library card.  
+- Finding an unique cityscape in Toronto.  
+- Presentation preparation.
+
+## Preparation for presentation next week
+
+Both the success of the class, and your achievement in the class, are heavily based on how we can share valuable information efficiently with each other. Moreover, two thirds of this class will be based on group projects. Group work can be very successful if you meet members who share similar visions but possess different skill sets. Also we need to know each other to define and to better tailor the class structure. Therefore, this individual ungraded presentation should contain: first, your main interests in creating game art, and express whether you have specific themes you want to work on, or if you are open to new themes; second, the level of your prior experience and your skill-sets in the 3D production pipeline; third, the address and snapshot of the place you suggest to construct in low poly 3D. 
+
+### Presentation detail:
+
+- Where to add: [google slide (LowPolyPresentation_week2(Jan12))](https://docs.google.com/presentation/d/1TPrVlVms5iEH_mYUwu1J6UHmIVZHV7vR_C67MnA8m74/edit#slide=id.p)
+
+- Length: 3 to 6 slides
+
+- What to include: 
+
+	- Your name and major
+
+	- Your theme or interest or a work which inspires you
+
+	- Your skill-set in 3D pipelines. It can be based on computer skills or non-computer skills such as character/background sketch/paint, color palette, visual research, and so on.
+
+	- The address and snapshot of the place. It should be in walking distance of school. 
+
+
+</div>
+<div id="wrapper">
+	
+	<div class="header">
+		<h2>LowPolyGameArt</h1>			
+
+				<a href="week01.html">Week 1: Introduction</a><br/><!--
+				<a href="week02.html">2: 3D modeling I</a><br/>
+				<a href="week03.html">3: NURBS modeling</a><br/>
+				<a href="week04.html">4: Polygon modeling</a><br/>
+				<a href="week05.html">5: Shading</a><br/>								
+				<a href="week06.html">6: Texturing</a><br/>  
+				<a href="week07.html">7: Cinematography</a><br/>
+				<a href="week08.html">8: Modeling techniques</a><br/>
+				<a href="week09.html">9: Animation production</a><br/>
+				<a href="week10.html">10: Basic animation</a><br/>		
+				<a href="week11.html">11: Arnold: Physically Based Renderer</a><br/>
+				<a href="week12.html">12: Rendering</a><br/>-->
+	</div>
+	<div class="section">
+		<script type="text/javascript">
+		//var converter = new Markdown.Converter();
+		var converter = new Showdown.converter();
+		document.write(converter.makeHtml($('#sourcetext').text()));
+		</script>
+	</div>
+	
+	<div class="footer">H Ji, 2018</div>
+	
+</div>
+</body>
+</html>
