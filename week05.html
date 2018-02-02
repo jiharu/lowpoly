@@ -20,38 +20,206 @@ A guide to markdown syntax is at http://daringfireball.net/projects/markdown/
 
 <div style="display: none" id="sourcetext">
 
-# Rendering
-## Turtle renderer
-[Maya help: Turtle renderer](https://knowledge.autodesk.com/support/maya/learn-explore/caas/CloudHelp/cloudhelp/ENU/123112/files/turtle-html.html)  
 
-Turtle is a sophisticated baking plug-in for Autodesk® Maya® software used for lighting and content creation in next-gen game development.
+# UV texturing
 
-It is installed with Maya (starting version 2014).
+## UV mapping
+>UV stands for the horizontal (U) and vertical (V) coordinates of the 2D coordinate map space that is applied to a 3D object.
 
-Turtle lets you:
+UVs are 2D representations of a 3D object. There can be a problem with wrapping a 2D image (a texture) around a 3D object. UV mapping helps with this problem: UVs are directly related to vertices on a polygon and NURBS, but the UVs cannot be manipulated in 3D space; they are tied to a 2D coordinate plane and edited in a **UV editor**.
 
-- Create stunning global illumination for game levels.  
-- Bake illumination into texture maps, vertex maps, or point clouds.  
-- Bake occlusion and normal maps from detailed models to low-polygon models. 
+> UVs are like a “where” — they are a coordinate system across the surface of polygons (think latitude and longitude across a globe). 
+> Understanding what UVs are and being able to manipulate them is incredibly powerful and allows any image to define the surface of a 3D form. ***Unfortunately, this power to manipulate UV is not a trivial task and can be very counterintuitive.*** 
 
-## Tutorial
-- [Maya 2015 tutorial Did You Know About TURTLE renderer](https://www.youtube.com/watch?v=TB0n0eHc7zo)  
-- [BAKING NORMAL MAPS WITH TURTLE RENDER IN MAYA by lesterbanks](http://lesterbanks.com/2015/09/baking-normal-maps-with-turtle-render/)  
-- [Ambient Occlusion baking in Turtle](https://knowledge.autodesk.com/support/maya/learn-explore/caas/screencast/Main/Details/bfa463e1-203e-4ce0-8b4e-7d74f2fd663f.html)  
-- [Maya LT for Unity Developers: Texture Baking with Turtle](https://www.youtube.com/watch?v=EoS5QyaRZYk)  
-- [Rendering occlusion with the Turtle plug-in](https://knowledge.autodesk.com/support/maya/learn-explore/caas/video/youtube/watch-v-bwBYDWmROEA.html)  
-- [Advanced Baking - Baking Next-Gen lighting with Turtle](https://www.3dtotal.com/tutorial/1299-advanced-baking-next-gen-lighting-with-turtle-maya-misc-by-illuminate-labs)  
+![tex_01](img/maya/UVMapping.png)  
+
+The application of a texture in the UV space related to its effect in 3D. CC BY-SA 3.0 [wikipedia](https://en.wikipedia.org/wiki/UV_mapping)
+
+![tex_02](img/maya/Cube_Representative_UV_Unwrapping.png)
+
+A representation of the UV mapping of a cube. The flattened cube net may then be textured to texture the cube. CC BY-SA 3.0 [wikipedia](https://en.wikipedia.org/wiki/UV_mapping)
+
+## Video
+- [The Basics Of UV Mapping by The Guerrilla CG Project](https://vimeo.com/5017993)  
+- [“On the Run” Creative Process - Part One by the Rusted Pixel](https://vimeo.com/120644464)  
+
+________________________
+
+## Create UVs for polygon surfaces (Modeling // UV /)
+### Using different mapping methods and check the UV Texture Editor.
+
+![uv01](img/maya/shading/texturing/uv.png)
+
+### Example of a 3D human model with the UV map.
+
+![uv01](img/maya/shading/texturing/uv01.png)
+
+(a) Planar, (b) cylindrical, (c) spherical, and (d) automatic mapping of a human model.
+
+![uv02](img/maya/shading/texturing/uv02.png)
+
+## UV texture map
+
+### A human head model with a uniform UV map and a nonuniform UV map.
+
+![uv03](img/maya/shading/texturing/uv03.png)
+
+### Examples of UV texture mapping
+![3dp01](img/maya/shading/texturing/texs.png)
+
+### The bumps and folds of a sculpture are roughed in with the 3D Paint tool
+![3dp](img/maya/shading/texturing/3dpaint.png)
+
+----------
+## UV Texture editor
+3D software uses u- and v-coordinates to determine how textures should be applied to 3D objects. **UV mapping** refers to the process of determining these coordinates for polygon objects. **UV layout** is a term that refers to the 2D configuration of the UVs on a surface. In the **UV Texture Editor**, u-coordinates are plotted along the horizontal axis, and v-coordinates are plotted along the vertical axis. **UV maps** act as a guide for the placement of images. 
+
+**NURBS surfaces have implicit UVs; this means that the coordinates are built into the parameterization of the surface. UV texture coordinates do not have to be created for NURBS surfaces; only polygon and subdivision surfaces require mapped UVs.**
+
+
+## Reference
+
+[Maya 2018 online Help](http://help.autodesk.com/view/MAYAUL/2018/ENU//)    
+
+- Art of Maya [pdf link](http://web.cse.ohio-state.edu/~parent/classes/682/MAYA/art_of_maya.pdf)    
+- [Maya 2018 UV editor overview](http://help.autodesk.com/view/MAYAUL/2018/ENU/?guid=GUID-73BF7546-3BF2-44F3-9192-15A024CEC173)  
+- [Maya 2018: UV Toolkit Review, 13:27](https://www.youtube.com/watch?v=4gT3XAbOiV0)  
+- [UV mapping tips](http://help.autodesk.com/view/MAYAUL/2018/ENU/?guid=GUID-1CEF8A5B-1051-40F1-ACFE-F29AD066F56F)  
+- [Layout UV shells](http://help.autodesk.com/view/MAYAUL/2018/ENU/?guid=GUID-21CFF911-9C21-4019-B676-766ACA3BC889)  
+- [UV projection](http://help.autodesk.com/view/MAYAUL/2018/ENU//index.html?guid=GUID-B7E73748-5F8E-4E66-BE88-DF3C2A3DF438)  
+- [Displaying and Selecting UVs](http://help.autodesk.com/view/MAYAUL/2018/ENU//index.html?guid=GUID-764C4EB5-7050-477B-B866-76FE86758E7D)  
+
+
+### Further reading 
+- [OpenGL Cube Map Texturing tutorial from NVIDIA, 1999](http://www.nvidia.com/object/cube_map_ogl_tutorial.html)
+
+## UV Practice
+### Dice 
+
+- [Forward and Back Dice Template](https://www.earlylearninghq.org.uk/numeracy-resources/counting-games/forward-and-back-dice-template/)  
+	![tex](https://www.earlylearninghq.org.uk/wp-content/uploads/2015/01/Forward-and-back-dice-prev.jpg)  
+- [Coin Dice Template (UK)](https://www.earlylearninghq.org.uk/numeracy-resources/coins/coin-dice-uk/)  	![tex](https://www.earlylearninghq.org.uk/wp-content/uploads/2017/01/Coin-dice-prev.jpg)
+ 
+### Low poly barrel 
+- [Barrel Low Poly by terentiy from TurboSquid](https://www.turbosquid.com/FullPreview/Index.cfm/ID/1040707)     
+- [Barrel Low Poly by KurtCV from TurboSquid](https://www.turbosquid.com/FullPreview/Index.cfm/ID/794977)   
+
+### Box texturing
+![tex](http://media.moddb.com/images/members/1/400/399748/skin_box.jpg)  
 
 
 
+
+Lego texturing
+![uv01](img/maya/character/uv01.png) 
+
+- You can download this Lego uv texture from [LEGO Universe Wiki](http://legouniverse.wikia.com/wiki/File:Torsos_NPC_VandaDarkflame_I5.png) is a fandom games community.
+Content is available under CC-BY-SA. 
 <!--
+- For this tutorial, [Vanda Darkflame character](http://legouniverse.wikia.com/wiki/Vanda_Darkflame) texture is used.-->
 
-https://www.youtube.com/watch?v=FEVUtVAy-n0 
+- [Custom Minifig Textures](http://nexusadventures.wikia.com/wiki/User_blog:Ferfature/Custom_Minifig_Textures) 
 
--->
+### Preparation
+- Assign one material because we will work all UVs into a single texture coordinate.
+
+- Assign the texture from the color attribute.
+
+- Change the workspace to the UV editing mode.
+
+### Planar UV mapping
+- Let's apply planar uv mapping for each part and move the uv shells to proper parts. 
+- Then from a camera view, select the face which has a texture from the Lego geometry and apply **Select / Convert Selection / To Edge Perimeter.**  
+
+![uv02](img/maya/character/uv02.png)  
+
+- Move to the UV texture editor and apply UV Edtor / Polygon / Cut UV Edges.
+
+![uv03](img/maya/character/uv03.png)  
+
+- In the UV texture editor, choose Shell from the component mode, and select & move around to find the cut shell.
+  
+![uv04](img/maya/character/uv04.png)  
+
+- Move the shell and select UV from the component mode and move UVs to map the texture to the UV layout.
+- Repeat the same process to the head, body, belt, and legs.
+  
+![uv05](img/maya/character/uv05.png) 
+
+- For the arms, which have more geometry faces, you can select a few faces and use Select / Grow or Shrink and other commands to make the selection processes efficient.
+ 
+![uv06](img/maya/character/uv06.png)  
+![uv07](img/maya/character/uv07.png)  
+
+____________________________________
+
+## Optional: shading, lighting, and rendering
+- Let's work on the cinematography. Create lights and soft shadows. 
+	- In the below rendering, one directional and one ambient light were used.
+- Make a rendering quality high.
+	- In the render settings, make the Anti-aliasing quality to the production quality.
+- Let's tweak the shading parameters to make it look good.
+- You can create an environment such as a ground and a sky too.
+
+![sh01](img/maya/character/lego.jpg)  
+
+- Let's switch to the Maya Vector render.
+	- Tweak the Fill Options and Edge Options in the render settings.
+
+![sh02](img/maya/character/lego_vec01.png)  
+![sh03](img/maya/character/lego_vec02.png)  
+
+________________________
+
+## Optional: smoothing
+
+- Let's apply Bevel to the Edge loop to add smoother lines.
+ 
+![sm01](img/maya/character/sm01.png) 
+![sm02](img/maya/character/sm02.png) 
+
+- Optionally, you can apply Mesh / Smooth Proxy / Subdiv Proxy.
+From the option box, you can create layers which can divide the subdiv surfaces from its low polygon geometry.  
+
+![sd01](img/maya/character/sd01.png) 
+
+- To keep the boundary, you can use Mesh / Smooth Proxy / Crease Tool. When you apply, you need choose edges from the component mode and drag while holding a mouse middle button to decide its intensity.
+  
+![sd02](img/maya/character/sd02.png) 
+
+- Please compare the low poly, its exponential level is one or two in the PolySmoothProxy node.
+
+![sd03](img/maya/character/sd03.png) 
+![sd04](img/maya/character/sd04.png) 
+
+- ***Congratualtions! It's completed!***
+
+______________________________
+
+## Lego related reference
+- [Lego Man 3D Minifig Reference
+by Quandtum](http://quandtum.deviantart.com/art/Lego-Man-3D-Minifig-Reference-145171513) 
+- [Anatomy Of A Lego Minifig](http://wtf.thebizzare.com/offbeat/uncategorized/anatomy-of-a-lego-minifig/)  
+- [LEGO-Textures: Textures scanned from real LEGO bricks!](https://github.com/rioforce/LEGO-Textures)  
+- [CgTrader](https://www.cgtrader.com/3d-models/sport-hobby/toy/lego-man-collection-10-characters)  
+- [LEGO HEAD DECALS](http://fantasticpixcool.com/lego+head+decals)  
+- [Base Lego Model](https://3docean.net/item/base-lego-model/8762731)  
+- [Lego Minifig 3D Model](https://www.creativecrash.com/3d-model/lego-minifig-3d-model)  
+
+
 ___________________________________
-# Assignment
+# Action items
+- Check out [Maya Texturing](https://jiharu.github.io/intm3d/week07.html) for more resources and description about UV texturing.  
 
+- Check the [Lynda.com: Creating Game Environments in Maya and Photoshop with Adam Crespi](https://www.lynda.com/MyPlaylist/Watch/14973311/110453?autoplay=true) 
+
+- Progress presentation I preparation  
+
+	- (15 mins~25 mins per team)
+	- Progress report (team vs members)
+	- Current challenges/difficulties  
+	- Sharing found tips
+	- Original tutorials to share and to record
 
 </div>
 <div id="wrapper">
@@ -65,8 +233,8 @@ ___________________________________
 				<a href="week01.html">Week 1: Introduction</a><br/>
 				<a href="week02.html">Week 2: Group matching</a><br/>
 				<a href="week03.html">Week 3: Modeling I</a><br/>
-				<a href="week04.html">Week 4: Modeling II</a><br/><!--
-				<a href="week05.html">5: Shading</a><br/>								
+				<a href="week04.html">Week 4: Modeling II</a><br/>
+				<a href="week05.html">Week 5: UV texturing</a><br/><!--								
 				<a href="week06.html">6: Texturing</a><br/>  
 				<a href="week07.html">7: Cinematography</a><br/>
 				<a href="week08.html">8: Modeling techniques</a><br/>

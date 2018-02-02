@@ -220,105 +220,6 @@ And check out the attributes of the image plane from its attribute editor.
 
 ![hand05](img/maya/character/hand05.png) 
 
-
-----------------------------------------------
-
-## UV layout & texturing
-![uv01](img/maya/character/uv01.png) 
-
-- You can download a Lego uv texture from [LEGO Universe Wiki is a Fandom Games Community](http://legouniverse.wikia.com/wiki/File:Torsos_NPC_VandaDarkflame_I5.png)
-Content is available under CC-BY-SA. 
-
-- For this tutorial, [Vanda Darkflame character](http://legouniverse.wikia.com/wiki/Vanda_Darkflame) texture is used.
-
-- [Custom Minifig Textures](http://nexusadventures.wikia.com/wiki/User_blog:Ferfature/Custom_Minifig_Textures) 
-
-### Preparation
-- Create 5 materials and apply each material to a head, a body, a belt, legs, and arms respectively.
-
-- Link the texture from the color attributes for all materials.
-
-- Work on panel layouts for a comfortable workflow.
-
-### Planar UV mapping
-- Let's apply planar uv mapping for each part and move the uv shells to proper parts. 
-- Then from a camera view, select the face which has a texture from the Lego geometry and apply **Select / Convert Selection / To Edge Perimeter.**  
-
-![uv02](img/maya/character/uv02.png)  
-
-- Move to the UV texture editor and apply UV Edtor / Polygon / Cut UV Edges.
-
-![uv03](img/maya/character/uv03.png)  
-
-- In the UV texture editor, choose Shell from the component mode, and select & move around to find the cut shell.
-  
-![uv04](img/maya/character/uv04.png)  
-
-- Move the shell and select UV from the component mode and move UVs to map the texture to the UV layout.
-- Repeat the same process to the head, body, belt, and legs.
-  
-![uv05](img/maya/character/uv05.png) 
-
-- For the arms, which have more geometry faces, you can select a few faces and use Select / Grow or Shrink and other commands to make the selection processes efficient.
- 
-![uv06](img/maya/character/uv06.png)  
-![uv07](img/maya/character/uv07.png)  
-
------------------------------------------------
-
-## Shading, lighting, and rendering
-- Let's work on the cinematography. Create lights and soft shadows. 
-	- In the below rendering, one directional and one ambient light were used.
-- Make a rendering quality high.
-	- In the render settings, make the Anti-aliasing quality to the production quality.
-- Let's tweak the shading parameters to make it look good.
-- You can create an environment such as a ground and a sky too.
-
-![sh01](img/maya/character/lego.jpg)  
-
-- Let's switch to the Maya Vector render.
-	- Tweak the Fill Options and Edge Options in the render settings.
-
-![sh02](img/maya/character/lego_vec01.png)  
-![sh03](img/maya/character/lego_vec02.png)  
-
--------------------------------------------------
-
-## Smoothing
-
-- Let's apply Bevel to the Edge loop to add smoother lines.
- 
-![sm01](img/maya/character/sm01.png) 
-![sm02](img/maya/character/sm02.png) 
-
-- Optionally, you can apply Mesh / Smooth Proxy / Subdiv Proxy.
-From the option box, you can create layers which can divide the subdiv surfaces from its low polygon geometry.  
-
-![sd01](img/maya/character/sd01.png) 
-
-- To keep the boundary, you can use Mesh / Smooth Proxy / Crease Tool. When you apply, you need choose edges from the component mode and drag while holding a mouse middle button to decide its intensity.
-  
-![sd02](img/maya/character/sd02.png) 
-
-- Please compare the low poly, its exponential level is one or two in the PolySmoothProxy node.
-
-![sd03](img/maya/character/sd03.png) 
-![sd04](img/maya/character/sd04.png) 
-
-- ***Congratualtions! It's completed!***
-
-______________________________
-
-## Lego related reference
-- [Lego Man 3D Minifig Reference
-by Quandtum](http://quandtum.deviantart.com/art/Lego-Man-3D-Minifig-Reference-145171513) 
-- [Anatomy Of A Lego Minifig](http://wtf.thebizzare.com/offbeat/uncategorized/anatomy-of-a-lego-minifig/)  
-- [LEGO-Textures: Textures scanned from real LEGO bricks!](https://github.com/rioforce/LEGO-Textures)  
-- [CgTrader](https://www.cgtrader.com/3d-models/sport-hobby/toy/lego-man-collection-10-characters)  
-- [LEGO HEAD DECALS](http://fantasticpixcool.com/lego+head+decals)  
-- [Base Lego Model](https://3docean.net/item/base-lego-model/8762731)  
-- [Lego Minifig 3D Model](https://www.creativecrash.com/3d-model/lego-minifig-3d-model)  
-
 ______________________________
 ## Preparation for **group presentation** next week  
 ### Initial group presentation detail:
@@ -348,8 +249,8 @@ ______________________________
 				<a href="week01.html">Week 1: Introduction</a><br/>
 				<a href="week02.html">Week 2: Group matching</a><br/>
 				<a href="week03.html">Week 3: Modeling I</a><br/>
-				<a href="week04.html">Week 4: Modeling II</a><br/><!--
-				<a href="week05.html">5: Shading</a><br/>								
+				<a href="week04.html">Week 4: Modeling II</a><br/>
+				<a href="week05.html">Week 5: UV texturing</a><br/><!--								
 				<a href="week06.html">6: Texturing</a><br/>  
 				<a href="week07.html">7: Cinematography</a><br/>
 				<a href="week08.html">8: Modeling techniques</a><br/>
