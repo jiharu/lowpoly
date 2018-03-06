@@ -22,6 +22,8 @@ A guide to markdown syntax is at http://daringfireball.net/projects/markdown/
 
 
 # Game as art, art as game
+## Reading
+
 - [Games AS art: The Aesthetics of Play
 Celia Pearce
 Visible Language; 2006; 40, 1; Academic Research Library](http://www.intermass.com/files/pearce.pdf)  
@@ -36,94 +38,6 @@ Literature and Culture 19.4 (2017)](https://docs.lib.purdue.edu/cgi/viewcontent.
 ## Substance designer
 [SUBSTANCE SOURCE: SIGNATURE MATERIALS BY DANIEL THIGER](https://www.allegorithmic.com/blog/substance-source-signature-materials-daniel-thiger?utm_source=Allegorithmic+Newsletter&utm_campaign=96259e4370-EMAIL_CAMPAIGN_2018_01_18&utm_medium=email&utm_term=0_2e69063d82-96259e4370-332387901&mc_cid=96259e4370&mc_eid=f39565f470)  
 [Daniel Thiger](https://www.artstation.com/dete)  
-
-# Rendering
-## Turtle renderer
-[Maya help: Turtle renderer](https://knowledge.autodesk.com/support/maya/learn-explore/caas/CloudHelp/cloudhelp/ENU/123112/files/turtle-html.html)  
-
-Turtle is a sophisticated baking plug-in for Autodesk® Maya® software used for lighting and content creation in next-gen game development.
-
-It is installed with Maya (starting version 2014).
-
-Turtle lets you:
-
-- Create stunning global illumination for game levels.  
-- Bake illumination into texture maps, vertex maps, or point clouds.  
-- Bake occlusion and normal maps from detailed models to low-polygon models. 
-
-## Tutorial
-- [Maya 2015 tutorial Did You Know About TURTLE renderer](https://www.youtube.com/watch?v=TB0n0eHc7zo)  
-- [BAKING NORMAL MAPS WITH TURTLE RENDER IN MAYA by lesterbanks](http://lesterbanks.com/2015/09/baking-normal-maps-with-turtle-render/)  
-- [Ambient Occlusion baking in Turtle](https://knowledge.autodesk.com/support/maya/learn-explore/caas/screencast/Main/Details/bfa463e1-203e-4ce0-8b4e-7d74f2fd663f.html)  
-- [Maya LT for Unity Developers: Texture Baking with Turtle](https://www.youtube.com/watch?v=EoS5QyaRZYk)  
-- [Rendering occlusion with the Turtle plug-in](https://knowledge.autodesk.com/support/maya/learn-explore/caas/video/youtube/watch-v-bwBYDWmROEA.html)  
-- [Advanced Baking - Baking Next-Gen lighting with Turtle](https://www.3dtotal.com/tutorial/1299-advanced-baking-next-gen-lighting-with-turtle-maya-misc-by-illuminate-labs)  
-
-## Related papers & articles
-- [R Gupta, R Nawani, VP Talreja, Virtual Reality Content Creation using Unity 3D and Blender, 2016](https://pdfs.semanticscholar.org/44a7/8c2de0291b52b7fbe064b403b571e5a47c3f.pdf) 
-
-- [Games AS art: The Aesthetics of Play
-Celia Pearce
-Visible Language; 2006; 40, 1; Academic Research Library](http://www.intermass.com/files/pearce.pdf)  
-
-- [Press Start: Video Games and Art
-BY ERIN GAVIN](http://portal.lvc.edu/vhr/articles/gavin.pdf)
-
-- [Bourgonjon, Jeroen; Vandermeersche, Geert; and Rutten, Kris. "Perspectives on Video Games as Art." CLCWeb: Comparative
-Literature and Culture 19.4 (2017)](https://docs.lib.purdue.edu/cgi/viewcontent.cgi?article=3024&context=clcweb)  
-
-## Good reference and tutorial
-- [Minions Art is creating Game Art Tips and Astro Kat, a Catventure game!](https://www.patreon.com/minionsart)  
-
-## GLTF
-- [GLTF](https://www.khronos.org/gltf/)  
-- [slide: glTF 2.0 Launch
-Web3D Conference, June 2017](https://www.khronos.org/assets/uploads/developers/library/2017-web3d/glTF-2.0-Launch_Jun17.pdf)  
-- [Blendergltf](https://github.com/Kupoman/blendergltf) 
-Blendergltf is an addon for Blender that adds the ability to export to the glTF format. This addon started its life as part of the Blender Real TimeEngine addon in order to provide a convenient way of streaming scene data to real time engines. As interest has grown in glTF, the glTF exporting code of the Blender Real Time Engine addon was moved into this repository to be used as both a Python module and a Blender addon.
-- [glTF Tutorial](https://github.com/KhronosGroup/glTF-Tutorials/blob/master/gltfTutorial/README.md)  
-- [Physically-Based Rendering: From Theory to glTF](https://github.com/moneimne/glTF-Tutorials/tree/master/PBR)  
-
-<!--
-
-https://www.youtube.com/watch?v=FEVUtVAy-n0 
-
--->
-## Motion Capture 
-### Data collecting / generating
-- Download free motion capture data as .fbx
-
-	- [mocapdata.com](http://mocapdata.com/)  
-	mocapdata.com provides 933 premium and 4671 free motion datasets and is advertised as 'the world biggest state of the art motion capture library on the earth.'
-	- [turbosquid.com](http://www.turbosquid.com/Search/Motion-Capture/free/fbx)  
-	 TurboSquid provides 3D assets including 3D models. You can find free 3D models as well as free motion capture FBX data that can be imported to Maya. 
-
-- Create a folder to save the downloaded fbx files.   
-
-### In Maya
-- Open the Maya scene where your HIK character. 
-- Import fbx data into the scene. Check the imported character from the outliner window, and play to check the animation.  
-- In the HIK window, your character should be in the Character box (e.g., Character1) and change the Source to the imported character. (e.g., Humanoid1)
-- Now you can see that your character behaves according to the imported MOCAP motion.
-
-![mcap](img/lab/mcap.png) 
-
-### Export to Unreal
-- Choose the highest bone of your character, where has kyes. 
-- Go to File / Send to Unreal -> Selection and export your animation. 
-
-- You can choose the mesh and skeletons and export them too. 
-
-### In the Unreal Engine
-- Opne Epic Games Launcher and Launch Unreal Engine. You need to create your account in the Epic Games, if you don't have.
-- Create New Project. 
-- In the Content Browser, create one folder and import your fbx files to here.   
-
-### Related tutorial
-- [Unreal Engine 4 - Mixamo To Unreal Engine 4 - UE4 Import by Titanic Games](https://www.youtube.com/watch?v=8RB53mAiwGw)  
-- [ANIMATION FROM MAYA TO UE 4 10 HD by Manoanim APS](https://www.youtube.com/watch?v=zOZbghSJNpc)  
-- [MAYA CHARACTER TO UE4 EP5- WALK CYCLE ANIMATION by SacMakersDaniel](https://www.youtube.com/watch?v=_ZSDTp-l3pw) 
-- [MAYA CHARACTER TO UE4 EP7- IMPORTING CHARACTER AND ANIMATIONS by SacMakersDaniel](https://www.youtube.com/watch?v=5TBHJd6olo8&t=133s)    
 
 
 </div>
@@ -142,8 +56,8 @@ https://www.youtube.com/watch?v=FEVUtVAy-n0
 				<a href="week04.html">Modeling II</a><br/>
 				<a href="week05.html">UV texturing</a><br/>							
 				<a href="week06.html">Shading & Texturing</a><br/>  
-				<a href="week07.html">Game production</a><br/><!--	
-				<a href="week08.html">8: Modeling techniques</a><br/>
+				<a href="week07.html">Game production</a><br/>
+				<a href="week08.html">3D sculpt & Motion capture</a><br/><!--	
 				<a href="week09.html">9: Animation production</a><br/>
 				<a href="week10.html">10: Basic animation</a><br/>		
 				<a href="week11.html">11: Arnold: Physically Based Renderer</a><br/>
