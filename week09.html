@@ -22,13 +22,14 @@ A guide to markdown syntax is at http://daringfireball.net/projects/markdown/
 
 
 # Level of Detail
-Level of Detail (LOD) is an effective optimization technique. It is to use a coarser-level geometric representation of an object in a far distance that has a similar appearance to the high-level representation but requires less data to be processed by the CPU and GPU to save computational resources.   
+Level of Detail (LOD) is an effective optimization technique. It is to use a coarser-level geometric representation of an object in the far distance, that has a similar appearance to the high-level representation used in close distance, but requires less data to be processed by the CPU and GPU to save computational resources.  
 
 ## LOD category
 ### Sprites or Billboards
 2D representations of 3D objects that are used to reduce the complexity of the object. e.g., trees are drawn as a pair of rectangles with alpha-blended textures. A grandstand in an automobile race. The audience is typically drawn as rows of rectangular billboards that try to face the camera, but are constrained to rotate about the vertical axis. 
 ### Discrete LOD
-Creating multiple representations of the same object. Selection to which representation is drawn is based on the distance of a LOD center to the eye point (camera position) Artists have to manually generate each model.
+Creating multiple representations of the same object. Selection of which representation is drawn is based on the distance of the LOD centre to the eye point (camera position).
+
 ### Continous LOD
 An attempt to automate the generation of different-resolution representations of an object. For triangle meshes, the generation amounts to removing a few triangles at a time while trying to preserve the shape of the object. 
 ### Infinite LOD 
@@ -46,12 +47,11 @@ ___________
 
 # Joint system
 ## Skeletons & Skinning
-**Skeletons** are hierarchical, articulated structures that let you pose and animate bound models. A skeleton provides a deformable model with the same underlying structure as the human skeleton gives the human body.
+**Skeletons** are hierarchical, articulated structures that let you pose and animate bound models. A skeleton for a human avatar provides a deformable model with the same underlying structure as the human skeleton gives the human body. 
 
 ![skl](img/maya/kinematic/comp_aboutWhatSkeletons.png)
 
 Just like in the human body, the location of joints and the number of joints you add to a skeleton determine how the skeleton’s bound model or ‘body’ moves. When you bind a model to a skeleton, it is called **skinning**.
-
 
 
 ### Skeleton components
@@ -211,7 +211,7 @@ The next three icons—Full Body, Body Part, and Selection—control the **funct
 ## Mixamo
 Mixamo develops and sells web-based services for 3D character animation. Mixamo's technologies use machine learning methods to automate the steps of the character animation process, including 3D modeling to rigging and 3D animation.
 
-This is where you can find an automated, finished character & animation:  
+This is where you can find automated, finished characters & animations:
 
 - [Mixamo](https://www.mixamo.com/)
 
