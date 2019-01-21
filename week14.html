@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<title>Low Poly Game Art</title>
+    
+<link href="css/site.css" media="all" rel="stylesheet" type="text/css" />
+<link href="css/highlight.default.css" media="all" rel="stylesheet" type="text/css" />
+  
+<script src="js/jquery.js"></script>
+<script src="js/showdown.js" type="text/javascript"></script>
+
+<link rel="icon" type="image/x-icon" href="favicon.ico" />
+</head>
+<body>
+<!--
+Write the markdown code below.
+A guide to markdown syntax is at http://daringfireball.net/projects/markdown/
+-->
+
+<div style="display: none" id="sourcetext">
+
+# Modeling II
+## Strategies to work with complex modeling
+- Understand the 3D pipeline so that you can make a good plan of how to build your modeling data based on how it will be used.  
+- Break a complex reference’s shape down into smaller, simpler ones: whatever basic shapes are easier for shaping the model, for example, cylinders, cubes, cones, spheres, pipes and so on.  
+
+## Methods
+
+- Employ **build-out modeling**. From a single polygon, you can extrude edges to create smaller sections of a larger object. For example, box modeling allows you to start with a simple primitive that you can extrude to create a complex form.
+
+- When you work on a character or any other modeling which has **symmetry**, you can create half of it and then mirror it.
+
+
+Models may be created automatically or manually. The manual modeling process of preparing geometric data for 3D computer graphics is similar to plastic arts such as sculpting.
+
+![3Dart02](img/zbrush.jpeg)  
+
+ZBrush ZSketch of a fish, a sculpting skin, and a render.
+There is [Sculptris](http://pixologic.com/sculptris/), a free digital sculpting tool from  Pixologic which you can try.  
+
+### When your modeling is highly organic and complex:  
+
+- Sculpt polygons. Artisan is a brush-based modeling and editing toolset. Using Artisan, you can sculpt directly on the surface of geometry (You might also apply various deformation tools and soft selection function for your select tool).
+
+- Use retopology tools. Highly detailed, sculpted models are impractical to take through the production pipeline. Instead, the high-resolution model is retopologized to a lower, more manageable resolution.
+
+## Practice: Creating face 
+### Organic polygon modeling example
+- Reference photos
+
+![poex01](img/maya/polygon/front.jpg)  ![poex02](img/maya/polygon/side.jpg) 
+
+- Polygon modeling: M.C.Escher face modeling create by Haru Ji, 2002. 
+![poex03](img/maya/polygon/furtest09.png)  
+![poexsm01](img/maya/polygon/Escher_side.jpg)  
+![poexsm02](img/maya/polygon/Escher_side02.jpg)   
+![poexsm03](img/maya/polygon/Escher_45.jpg)  
+
+_______________________
+## Anatomy
+### Proportion
+![ana01](img/maya/polygon01/leonardo.png)  
+[Leonardo da Vinci's anatomical drawings](http://nancyveloaskin.blog32.fc2.com/blog-entry-595.html)
+
+![ana02](img/maya/polygon01/anatomy01.png) 
+[t.h. sketchbook](http://tanhend.blogspot.kr/2012/08/head-anatomy-proportion-and-design.html)
+
+![ana03](img/maya/polygon01/anatomy02.png) 
+![ana05](img/maya/polygon01/anatomy04.png) 
+
+[idrawdigital](http://www.idrawdigital.com/2009/01/drawing-tutorial-adult-child-proportions/)
+Image from Figure Drawing for All It's Worth by Andrew Loomis. [Amazon.com](http://www.amazon.com/gp/product/B000NNFLWQ?ie=UTF8&tag=wwwidrawdigit-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=B000NNFLWQ)
+
+![ana04](img/maya/polygon01/anatomy03.png) 
+
+More on [Pinterest](http://www.pinterest.com/tompaints/figure-drawing-proportions/)
+
+In terms of age:
+![ana06](img/maya/polygon01/anatomy_age.png)
+
+Another reference for proportional design of character faces:    
+[Polycount Forum](http://www.polycount.com/forum/showthread.php?p=1737339)    
+[Portfolio thread](http://www.polycount.com/forum/showthread.php?t=127986)  
+
+
+### Muscle 
+![muc04](img/maya/polygon01/head02.png) 
+
+Image from ZBrush® Digital Sculpting: Human Anatomy.
+
+![muc04_01](img/maya/polygon01/skeleton.png)
+
+![muc05](img/maya/polygon01/face01.png) 
+![muc06](img/maya/polygon01/face02.png) 
+![muc07](img/maya/polygon01/female.png) 
+
+![muc01](img/maya/polygon01/body01.png)![muc02](img/maya/polygon01/body02.png) 
+
+Images from [anatomytools.com](http://www.anatomytools.com/)
+
+![crpo01](img/maya/polygon/eye01.png)  
+![crpo02](img/maya/polygon/eye02.png)   
+![crpo03](img/maya/polygon/eye03.png)   
+![crpo04](img/maya/polygon/eye05.png)  
+
+### Strategy of organic modeling:    
+- Working with symmetry.
+- Using image planes to bring in reference sketches.
+- Using four-sided polygons and edge loop.
+- Maintaining polygons of relatively uniform size + numbers in pair and aspect ratio.
+- Decomposing complex forms into simpler subcomponents, also known as block modeling.
+
+### reference image
+
+![ri01](img/maya/shading/texturing/face_front.jpg) ![ri02](img/maya/shading/texturing/face_side.jpg) 
+
+### Toolsets:    
+#### Start
+- Crete polygons **(Modeling // Mesh Tools / Create Polygon)**
+- Tip: Using grid to check general size and proportions **(Display / Grid)**
+- Using Extrude to expand polygon faces **(Modeling // Edit Mesh / Extrude)**,
+Tip: Check **Keep Faces Together**: this option ensures that edges do not separate as they are extruded. 
+- Create eye balls **(Create / NURBS Primitives / Sphere)**
+- Tip: Using **Poly Count** and **Outliner** to check your Polygon data **(Display / Heads Up Display / Poly Count)**
+- Tip: **"g"** key for previous command
+
+#### Edit
+- Using component mode to move vertices and edges, tip: using selection tool **(Modeling // Select)**
+- Using Lattice deformer **(Modeling // Deform / Lattice)**
+- Using Sculpt tool **(Modeling // Mesh Tools / Sculpting Tools)**
+
+#### Combine two meshes (eye and nose)
+- Combine multiple geometries to one **(Modeling // Mesh / Combine)**
+- Create faces between geometries **(Modeling // Mesh Tools / Append to Polygon Tool)**
+- Divide faces **(Modeling // Mesh Tools / Multi-Cut)**
+
+#### Create symmetry
+- Align vertices at the center:   
+	- choose all vertices at the center from top or front view.   
+	- Snap to grid, tip: turn off Retain component spacing in the Move tool attribute editor. 
+
+Check the image:
+
+![move](img/maya/polygon01/movetool.png) 
+
+- Mirror & Merge the geometry **(Modeling // Mesh / Mirror Geometry)**
+
+![move](img/maya/polygon01/merge.png) 
+
+#### Smoothing Polygon surfaces
+- To see a smooth version of the model, choose (Modeling // Mesh Display / Soften Edge)
+- Or create Subdivision sufaces using Subdiv Proxy  **(Modeling // Mesh / Smooth Proxy)**
+
+
+
+
+
+</div>
+<div id="wrapper">
+	
+	<div class="header">
+		<h2>LowPolyGameArt</h1>		
+		<a href="index.html">Class outline</a><br/>
+		<a href="https://docs.google.com/spreadsheets/d/1Ob78eq8feKOhmdlHK3AJx71cI1p53jYFvdmVWf0fhV0/edit?usp=sharing">Schedule/Attendance</a><br/>
+		<a href="https://jiharu.github.io/intm3d/week01.html">3D modeling & animation class note</a><br/>
+		<a href="https://www.lynda.com/SharedPlaylist/43c97ef889cb4691a6fbd64b4d04a23c?org=ocadu.ca">Linda.com related tuorial</a><br/><br/>
+					
+		<h3>Class schedule</h3>	
+				<a href="week01.html">Introduction</a><br/>
+				<a href="week02.html">Group matching</a><br/>
+				<a href="week03.html">Modeling I</a><br/>
+				<a href="week04.html">Modeling II</a><br/>
+				<a href="week05.html">UV texturing</a><br/>							
+				<a href="week06.html">Shading & Texturing</a><br/>  
+				<a href="week07.html">Game production</a><br/>
+				<a href="week08.html">3D sculpt & Motion capture</a><br/>	
+				<a href="week09.html">LOD & Kinematics</a><br/>
+				<a href="week10.html">Independent project & Game as art</a><br/><!--		
+				<a href="week11.html">11: Arnold: Physically Based Renderer</a><br/>
+				<a href="week12.html">12: Rendering</a><br/>-->
+	</div>
+	<div class="section">
+		<script type="text/javascript">
+		//var converter = new Markdown.Converter();
+		var converter = new Showdown.converter();
+		document.write(converter.makeHtml($('#sourcetext').text()));
+		</script>
+	</div>
+	
+	<div class="footer">H Ji, 2018</div>
+	
+</div>
+</body>
+</html>

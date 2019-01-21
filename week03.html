@@ -20,243 +20,114 @@ A guide to markdown syntax is at http://daringfireball.net/projects/markdown/
 
 <div style="display: none" id="sourcetext">
 
-# Modeling basics
-## Goal
-- What to consider in planning.
-- Understanding the basics of low poly modeling in Maya.
+# Week 3
 
-___________________
-# What to consider in planning
+- Lecture: Production pipeline details  
+- Pre­production 3: Visual research and planning and forming teams. 
+- Team discussion.    
+- Making: Finalizing pre­production process.    
+- Assignment: Reading + your collective process report.
+
+___________________________________
+# Finalizing Pre-production
+
+## Collective process report presentation.
+Each team gives a process report presentation for sharing ideas and feedbacks in class.
+
+## What to consider in planning
 Reference: Gahan, Andrew, 3ds Max Modeling for Games: Volume II. Focal Press, 2012.
 
 - Ensure that you have enough time and resources to deliver it on time. Always ensure you know the deadline.  
 - Determine the polygon count (triangles or quadrangles), texture resolution specifications, and what types of textures are required (Bump, Specular, Normal maps, etc). 
 - Visual design / concept art  
 	If you don’t have clear and detailed concepts for your project, don’t start modeling. It’s a lot easier to make changes in 2D and on sketches, than it is halfway through your 3D build. A lot of artists fail to do this – don’t fall into the same trap. It’s a worthwhile investment of time to make all your decisions up front.
+
+## 3D modeling 
+### Installation Maya
+- Check the [week 1](https://jiharu.github.io/lowpoly/week01.html) Maya installation section to find a link to download an educational version of Maya. 
+
+### Action item
+If you haven't used Maya yet, please do the tutial below. This will cover basics of how to use Maya:  
+
+- [Lynda.com: Maya 2018 essential training](https://www.lynda.com/Maya-tutorials/Maya-2018-Essential-Training/604210-2.html?org=ocadu.ca)  
+	- The Maya Interface 26m 13s  
+	- Select and Manipulate Objects 38m 37s  
+	- Organize Maya Scenes 36m 58s  
+	- Create Polygonal Models 29m 23s  
+	- Model Polygonal Meshes 42m 12s
 	
-# Cleanup polygon models
-- [Maya help: Cleanup options](https://knowledge.autodesk.com/support/maya/learn-explore/caas/CloudHelp/cloudhelp/2018/ENU/Maya-Modeling/files/GUID-AB60C982-C96E-4947-8CF3-5152406B6A40-htm.html) 
-- [Maya help: Two-manifold and non-manifold polygonal geometry](https://knowledge.autodesk.com/support/maya/learn-explore/caas/CloudHelp/cloudhelp/2018/ENU/Maya-Modeling/files/GUID-8E97CEF7-1CFE-4838-B4B7-59F526E21AB2-htm.html) 
+### Inspiration
+- Low poly art: 
+[Timothy J. Reynolds](http://www.turnislefthome.com/33005/324719/work/low-poly-isometrics),
+[AWWWARDS](http://www.awwwards.com/low-poly-illustration-what-s-the-secret.html)   
+	- Apple iPhone 3d diorama animation video [Youtube](https://www.youtube.com/watch?v=Em2WhCa8cgE)  
+	- Paper City [Vimeo](https://vimeo.com/67658001)			
 
-The Cleanup feature lets you remove unwanted geometry from a polygon mesh (for example, zero area faces or zero length edges). You can also tessellate faces that may be valid within Maya, but not in a game console, such as concave faces, or faces with holes.  
+## Pre-preparation for modeling	
+### Example
+- [Good quality mobile game animations – A Koukoi Games guide
+by Antti Kananen on 03/14/16](https://www.gamasutra.com/blogs/AnttiKananen/20160314/267983/Good_quality_mobile_game_animations__A_Koukoi_Games_guide.php)  
 
-Because the Cleanup feature has the ability to merge vertices and collapse zero length edges, there may be situations where the Cleanup feature can output non-manifold geometry. This can occur when you set the Cleanup options to perform multiple cleanup operations on a mesh in a cascading way. If this situation is likely, it is recommended you run the Cleanup feature multiple times and turn on the Non-Manifold Geometry option in the Remove Geometry section only on the last iteration.
-To clean up polygon meshes
+![tutorial](http://koukoi.com/koukoi/wp-content/uploads/2016/03/cs_character-design_arctic_fox-1.png) 
 
-- Select the polygon mesh you want to clean up.  
-- Select Mesh > Cleanup.  
+## Low poly tutorial
+### Example
+- [How to make low-poly buildings for games
+By Creative Bloq Staff October 10, 2012](https://www.creativebloq.com/how-make-low-poly-buildings-games-10123111)  
 
-# Basics of low poly modeling
-## Game Art Terminology
-[Link to Safari books online](http://proquestcombo.safaribooksonline.com.ezproxy.torontopubliclibrary.ca/book/animation-and-3d/9780240816067/chapter-1-introduction-to-3ds-max-and-basic-modeling-terms/s4_xhtml?uicode=torontopl)  
-
-## Cinematic vs game model
-Models built for interactive 3D are primarily polygonal models that use controlled polygon counts to suit gaming engines. Some next-generation game engines already have support for Bezier geometry, and NURBS and Subdivision surfaces may soon follow. 
-
-![lod](img/lod.png)  
-Cinematic model and game model. Image from the book Rigging for Games by Eyal Assaf.
-
-## Tutorial: low poly robot 
-- [Link to Safari books online](http://proquestcombo.safaribooksonline.com.ezproxy.torontopubliclibrary.ca/book/animation-and-3d/9780240816067/chapter-6-modeling-the-robot-in-maya/14_chapter06_xhtml?uicode=torontopl)  
-- Chapter 6: Modeling the Robot in Maya  
-	- Modeling the Low Poly Version  
-	- Unwrapping the Robot  
-	- Baking the Texture Maps
-	- Texturing the Robot  
-
-__________
-# Lego chracter modeling & texturing
-
-![lab01](img/maya/character/legoman.jpg)    
-![lab03](img/maya/character/legoman_front.png) ![lab04](img/maya/character/legoman_side.png)  
-![lab03_01](img/maya/character/legoman_front01.png) 
-![lab04_01](img/maya/character/legoman_side01.png)
-![lab05](img/maya/character/spiderman_front.jpg)  
-![lab06](img/maya/character/spiderman_back.jpg) 
-![lab07](img/maya/character/spiderman_side.jpg) 
-
-## What to do:
-- Preparation
-- Low polygon modeling
-- UV texturing
-- Shading, lighting, and rendering controls
-- Smoothing the polygon
-
-## Important commands and tips:
-- Commands:
-	- Extrude
-	- Booleans
-	- Selections
-	- Deformers
-- Tips:
-	- Spend some time to **analyze and plan** before beginning the modeling processes. 
-	- Well prepared blueprints are important to the modeling processes.	
-	- Switch often to check its position from the side, front, and perspective view.
-	- Menu / Select tools are useful and efficient.
-	- Naming: in the outline and layer editor, from time to time spend some time to name them properly. It will help a lot to work on more complex modeling tasks.   
-	- Using Layer editor and Shading options to control its **transparent/opaque views** and **templete/reference/object** view & selection modes.
-
--------------------------
-
-## Preparation
-- Prepare the front and side images of a Lego model.
-- Importing blueprints to a front camera and a side camera (View / Image Plane).
-
-![pre](img/maya/character/imageplane.png) 
-
-- You can adjust the image plane position: using the Image Center X, Y, or Z.   
-And check out the attributes of the image plane from its attribute editor. 
+![tutorial](https://cdn.mos.cms.futurecdn.net/fe30dac7e3608e960e123608b628d13f-650-80.jpg) 	
 	
-![pre01](img/maya/character/imageplane01.png) 
+## Maya based low poly tips
 
-------------------------------
-## Low polygon modeling
-### Head
-- Create from a cylinder polygon object and modify its position and scale. (subdiv: 12) 
-- From the front view, go to the component face selection mode and drag - select faces and from the menu Select / Shrink to select only top faces or neck faces and apply Edit Mesh / **Extrude**. Click its local / world switch and move & scale and apply Extrude to make the head-top or neck geometry: ***Be careful not to apply several extrude commands at once. It is easy to do so. Use Undo to make sure that you didn't multi-fully applied the same function.***
- 
- 
-![head](img/maya/character/ext.png)  
+![lowpoly](img/lowpolytest01.png)   
+by H.Ji. 
 
-### Body
-- Start from a box. Move & scale it and use its vertices to make the right shape.  
+- You can find test models from ***Windows/General Editors/Content Browser/***
+- Harden edge - Interpolation of vertex normals to make hard edges: ***Mesh Display/Harden Edge***
+- Polygon reduction also known as mesh decimation): ***Mesh/Reduce***    
+	- [Maya help - reduce](http://help.autodesk.com/view/MAYAUL/2018/ENU//index.html?guid=GUID-49F4731D-4F59-4B98-9751-F0E1CAA675CD)  
+- Checking Polygon component numbers - turn on ***Display/Heads Up Display/Poly Count***  
+	- [Maya help - poly count ](http://help.autodesk.com/view/MAYAUL/2018/ENU//index.html?guid=GUID-53E46D0C-4B7B-4404-AEB0-3BDD1FF8608A)	
+	- **Poly count:** displays polygon statistics for the visible objects displayed in the view panel, including Vertices, Edges, Faces, Triangles, and UVs. This feature is useful for game development. The first column on the left lists the total components of all the polygons in the scene. The second column lists the total components of the selected polygon(s). The third column lists the total selected components. The default is off.    	
+- **PBR** renderer: physically based render in Maya is Arnold.
+	- [Arnold rendering](https://jiharu.github.io/intm3d/week12.html) - aiSkyDomeLight applying when you want to use **HDRI**. 
 
-![body](img/maya/character/body.png)  
-
-- Use Extrude to make the lower body.
-
-### Middle belt piece
-![belt](img/maya/character/belt.png)  
- 
-- From the side view, let's start a cylinder to make the lower part of belt. 
-- Create a box for a belt and apply Mesh / **Booleans / Union** to make an unified geometry.
-
-### Leg
-- Create a cylinder and go to the side view and locate it.
-
-![leg01](img/maya/character/leg01.png)  
-
-- In the component mode, select faces as the image below and delete them.
-
-![leg02](img/maya/character/leg02.png)  
-
-- Select the edge and extrude.
-
-![leg03](img/maya/character/leg03.png)  
-
-- Select the edge and extrude several times to make the faces of the leg as the image below using the front and side view.
-
-![leg04](img/maya/character/leg04.png)  
-![leg05](img/maya/character/leg05.png)  
-
-- Apply the **Mesh Tools / Append to Polygon** to create the bottom face of the leg. After this, apply the **Mesh / Fill Hole** to create the closed mesh.  
-
-![leg06](img/maya/character/leg06.png)  
-
-- Now create a box to prepare the Boolean operation. Create a box bigger than the leg we created and from the front view, rotate it as the image plane. Select the leg and the shift select the box and apply Mesh / **Booleans / Difference.** 
-
-![leg07](img/maya/character/leg07.png)  
-
-- This time create a cylinder which is a bit larger than the lower belt part and select the leg and the cylinder and apply Mesh / **Booleans / Difference.** 
-
-![leg08](img/maya/character/leg08.png) 
-
-- Now right leg is done. Before duplicating it, let's clean it. Go to Edit and **Delete by Type / History.** 
-  
-![leg09](img/maya/character/leg09.png)  
-
-- In order to use the duplicate special, let's **reset Transformation** to make the manipulator locate in the world center.
- 
-![leg10](img/maya/character/leg10.png)  
-
-- Let's duplicate special. Note that scale X value is -1. 
-
-![leg11](img/maya/character/leg11.png)  
-
-- Great! Now we completed the legs. 
-- Plus, we can duplicate legs and make them a bit larger and apply Booleans / Difference to the belt to complete the belt.
-
-![leg12](img/maya/character/leg12.png)  
-
-----------------------------------------------------------------
-
-### Arm
-- Let's create a sphere and delete its faces to fit the contour of the image plane. 
-- Then, extrude the edge three times (choose one edge and apply **Select / Contiguous Edges** to select the entire edge perimeter) to make a base arm mesh. (when you apply the second extrude, increase its Divisions to 4 to make more lines for its deformation later.)
-
-![arm01](img/maya/character/arm01.png)  
-
-- Now apply **Deform / Lattice** to shape the arm. You can control the grid complexity using S, T, U divisions and its components are the Lattice Point. Using the lattice points, you can control and shape the main geometry.   
-
-![arm02](img/maya/character/arm02.png)  
-![arm03](img/maya/character/arm03.png)  
-![arm04](img/maya/character/arm04.png)  
-
-- Once shaping the arm is done, apply Mesh / Fill Hole to close it. 
-
-![arm05](img/maya/character/arm05.png)  
-
-- You can use the sculpt tool to add more fine controls. 
-
-![arm06](img/maya/character/arm06.png) 
-
-### Hand
-- Preparation: let's start from a Polygon Pipe. Transform it and then in the component mode, delete faces to shape it. You can apply Mesh / Fill Hole to close the mesh. 
-
-- Once it's done, you can apply lattices not only to an object but also to selected faces to deform. I applied the lattice to inner faces once and to outer faces again.   
-
-![hand01](img/maya/character/hand01.png) 
-
-- When the hand is done, you can extrude the face from the arm to make a wrist. Then apply Booleans / Union to complete. 
- 
-![hand02](img/maya/character/hand02.png) 
-
-- Duplication: now delete its history and apply Reset Transformations and apply duplicate it with -1 scale X to complete both arms.  
-
-![hand03](img/maya/character/hand03.png)  
-![hand04](img/maya/character/hand04.png) 
-
-- *Congratulations!* The low polygon modeling is completed. Before starting the UV layout, please delete all histories and work on naming in the outliner and layer editor.
-
-![hand05](img/maya/character/hand05.png) 
-
-______________________________
-## Preparation for **group presentation** next week  
-### Initial group presentation detail:
-
-- Bring your presentation file and later upload it as a pdf to Canvas.  
-- Length: 4 to 6 slides  
-- What to include: 
-
-	- Your team name and member names
-	- Subject/theme  
-	- Style
-	- Role of each member 
-	- Schedule 
-	- Planed final form of delivery
+![lowpoly](https://i.pinimg.com/564x/9e/6e/28/9e6e2873fbcfc031ba509761693a4402.jpg) 
 	
+- Above image: using **ambient occlusion** and adding **bevel** edges.	
+
+
+# Discussion & group formation
+
+# Assignment detail  
+## An (online) journal:
+- Keep working on your personal journal whenever you make a good progress. 
+- Please finalize your collective process online report before next class.   
+
+## Action item
+- Complete Lynda.com tutorial if this is new to you: modeling preparation from [Course: Maya 2018 Essential Training](https://www.lynda.com/MyPlaylists?playlistId=14973311)  
 
 </div>
 <div id="wrapper">
 	
 	<div class="header">
 		<h2>LowPolyGameArt</h1>		
-		<a href="index.html">Class outline</a><br/>
-		<a href="https://docs.google.com/spreadsheets/d/1Ob78eq8feKOhmdlHK3AJx71cI1p53jYFvdmVWf0fhV0/edit?usp=sharing">Schedule/Attendance</a><br/>
+		<a href="https://docs.google.com/spreadsheets/d/1Vxsw5zuTVJNBiI2C5LmYeX_FaB9K12r2HxIJKMHLJKk/edit?usp=sharing">Attendance</a><br/>
 		<a href="https://jiharu.github.io/intm3d/week01.html">3D modeling & animation class note</a><br/>
-		<a href="https://www.lynda.com/SharedPlaylist/43c97ef889cb4691a6fbd64b4d04a23c?org=ocadu.ca">Linda.com related tuorial</a><br/><br/>
+		<a href="https://www.lynda.com/SharedPlaylist/43c97ef889cb4691a6fbd64b4d04a23c? org=ocad.ca">Linda.com related tuorial</a><br/><br/>
 					
 		<h3>Class schedule</h3>	
-				<a href="week01.html">Introduction</a><br/>
-				<a href="week02.html">Group matching</a><br/>
-				<a href="week03.html">Modeling I</a><br/>
-				<a href="week04.html">Modeling II</a><br/>
+				<a href="index.html">Class outline</a><br/>
+				<a href="week01.html">1. Notgames/Indie games</a><br/>
+				<a href="week02.html">2. Concept art</a><br/>
+				<a href="week03.html">3. Finalizing Pre-production</a><br/>
+				<!--<a href="week04.html">Modeling II</a><br/>
 				<a href="week05.html">UV texturing</a><br/>							
 				<a href="week06.html">Shading & Texturing</a><br/>  
 				<a href="week07.html">Game production</a><br/>
 				<a href="week08.html">3D sculpt & Motion capture</a><br/>	
 				<a href="week09.html">LOD & Kinematics</a><br/>
-				<a href="week10.html">Independent project & Game as art</a><br/><!--		
+				<a href="week10.html">Independent project & Game as art</a><br/>	
 				<a href="week11.html">11: Arnold: Physically Based Renderer</a><br/>
 				<a href="week12.html">12: Rendering</a><br/>-->
 	</div>
@@ -268,7 +139,7 @@ ______________________________
 		</script>
 	</div>
 	
-	<div class="footer">H Ji, 2018</div>
+	<div class="footer">H Ji, 2019</div>
 	
 </div>
 </body>

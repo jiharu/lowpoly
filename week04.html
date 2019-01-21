@@ -20,167 +20,251 @@ A guide to markdown syntax is at http://daringfireball.net/projects/markdown/
 
 <div style="display: none" id="sourcetext">
 
-# Modeling II
-## Strategies to work with complex modeling
-- Understand the 3D pipeline so that you can make a good plan of how to build your modeling data based on how it will be used.  
-- Break a complex reference’s shape down into smaller, simpler ones: whatever basic shapes are easier for shaping the model, for example, cylinders, cubes, cones, spheres, pipes and so on.  
+# Week 4
+- Lecture: Polygon modeling process. 
+- Tutorial: Introduction to polygon modeling I  
+- Production 1: Modeling: divide roles to landscape, architecture, object, and (simple) character. 
+- Making: Modeling: sketch, research, polygon modeling.  
+- Assignment: Continuously work on your process report.
 
-## Methods
+___________________	
 
-- Employ **build-out modeling**. From a single polygon, you can extrude edges to create smaller sections of a larger object. For example, box modeling allows you to start with a simple primitive that you can extrude to create a complex form.
+# Basics of low poly modeling
+## Game Art Terminology
+[Link to Safari books online](http://proquestcombo.safaribooksonline.com.ezproxy.torontopubliclibrary.ca/book/animation-and-3d/9780240816067/chapter-1-introduction-to-3ds-max-and-basic-modeling-terms/s4_xhtml?uicode=torontopl)  
 
-- When you work on a character or any other modeling which has **symmetry**, you can create half of it and then mirror it.
-
-
-Models may be created automatically or manually. The manual modeling process of preparing geometric data for 3D computer graphics is similar to plastic arts such as sculpting.
-
-![3Dart02](img/zbrush.jpeg)  
-
-ZBrush ZSketch of a fish, a sculpting skin, and a render.
-There is [Sculptris](http://pixologic.com/sculptris/), a free digital sculpting tool from  Pixologic which you can try.  
-
-### When your modeling is highly organic and complex:  
-
-- Sculpt polygons. Artisan is a brush-based modeling and editing toolset. Using Artisan, you can sculpt directly on the surface of geometry (You might also apply various deformation tools and soft selection function for your select tool).
-
-- Use retopology tools. Highly detailed, sculpted models are impractical to take through the production pipeline. Instead, the high-resolution model is retopologized to a lower, more manageable resolution.
-
-## Practice: Creating face 
-### Organic polygon modeling example
-- Reference photos
-
-![poex01](img/maya/polygon/front.jpg)  ![poex02](img/maya/polygon/side.jpg) 
-
-- Polygon modeling: M.C.Escher face modeling create by Haru Ji, 2002. 
-![poex03](img/maya/polygon/furtest09.png)  
-![poexsm01](img/maya/polygon/Escher_side.jpg)  
-![poexsm02](img/maya/polygon/Escher_side02.jpg)   
-![poexsm03](img/maya/polygon/Escher_45.jpg)  
-
-_______________________
-## Anatomy
-### Proportion
-![ana01](img/maya/polygon01/leonardo.png)  
-[Leonardo da Vinci's anatomical drawings](http://nancyveloaskin.blog32.fc2.com/blog-entry-595.html)
-
-![ana02](img/maya/polygon01/anatomy01.png) 
-[t.h. sketchbook](http://tanhend.blogspot.kr/2012/08/head-anatomy-proportion-and-design.html)
-
-![ana03](img/maya/polygon01/anatomy02.png) 
-![ana05](img/maya/polygon01/anatomy04.png) 
-
-[idrawdigital](http://www.idrawdigital.com/2009/01/drawing-tutorial-adult-child-proportions/)
-Image from Figure Drawing for All It's Worth by Andrew Loomis. [Amazon.com](http://www.amazon.com/gp/product/B000NNFLWQ?ie=UTF8&tag=wwwidrawdigit-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=B000NNFLWQ)
-
-![ana04](img/maya/polygon01/anatomy03.png) 
-
-More on [Pinterest](http://www.pinterest.com/tompaints/figure-drawing-proportions/)
-
-In terms of age:
-![ana06](img/maya/polygon01/anatomy_age.png)
-
-Another reference for proportional design of character faces:    
-[Polycount Forum](http://www.polycount.com/forum/showthread.php?p=1737339)    
-[Portfolio thread](http://www.polycount.com/forum/showthread.php?t=127986)  
-
-
-### Muscle 
-![muc04](img/maya/polygon01/head02.png) 
-
-Image from ZBrush® Digital Sculpting: Human Anatomy.
-
-![muc04_01](img/maya/polygon01/skeleton.png)
-
-![muc05](img/maya/polygon01/face01.png) 
-![muc06](img/maya/polygon01/face02.png) 
-![muc07](img/maya/polygon01/female.png) 
-
-![muc01](img/maya/polygon01/body01.png)![muc02](img/maya/polygon01/body02.png) 
-
-Images from [anatomytools.com](http://www.anatomytools.com/)
-
-![crpo01](img/maya/polygon/eye01.png)  
-![crpo02](img/maya/polygon/eye02.png)   
-![crpo03](img/maya/polygon/eye03.png)   
-![crpo04](img/maya/polygon/eye05.png)  
-
-### Strategy of organic modeling:    
-- Working with symmetry.
-- Using image planes to bring in reference sketches.
-- Using four-sided polygons and edge loop.
-- Maintaining polygons of relatively uniform size + numbers in pair and aspect ratio.
-- Decomposing complex forms into simpler subcomponents, also known as block modeling.
-
-### reference image
-
-![ri01](img/maya/shading/texturing/face_front.jpg) ![ri02](img/maya/shading/texturing/face_side.jpg) 
-
-### Toolsets:    
-#### Start
-- Crete polygons **(Modeling // Mesh Tools / Create Polygon)**
-- Tip: Using grid to check general size and proportions **(Display / Grid)**
-- Using Extrude to expand polygon faces **(Modeling // Edit Mesh / Extrude)**,
-Tip: Check **Keep Faces Together**: this option ensures that edges do not separate as they are extruded. 
-- Create eye balls **(Create / NURBS Primitives / Sphere)**
-- Tip: Using **Poly Count** and **Outliner** to check your Polygon data **(Display / Heads Up Display / Poly Count)**
-- Tip: **"g"** key for previous command
-
-#### Edit
-- Using component mode to move vertices and edges, tip: using selection tool **(Modeling // Select)**
-- Using Lattice deformer **(Modeling // Deform / Lattice)**
-- Using Sculpt tool **(Modeling // Mesh Tools / Sculpting Tools)**
-
-#### Combine two meshes (eye and nose)
-- Combine multiple geometries to one **(Modeling // Mesh / Combine)**
-- Create faces between geometries **(Modeling // Mesh Tools / Append to Polygon Tool)**
-- Divide faces **(Modeling // Mesh Tools / Multi-Cut)**
-
-#### Create symmetry
-- Align vertices at the center:   
-	- choose all vertices at the center from top or front view.   
-	- Snap to grid, tip: turn off Retain component spacing in the Move tool attribute editor. 
-
-Check the image:
-
-![move](img/maya/polygon01/movetool.png) 
-
-- Mirror & Merge the geometry **(Modeling // Mesh / Mirror Geometry)**
-
-![move](img/maya/polygon01/merge.png) 
-
-#### Smoothing Polygon surfaces
-- To see a smooth version of the model, choose (Modeling // Mesh Display / Soften Edge)
-- Or create Subdivision sufaces using Subdiv Proxy  **(Modeling // Mesh / Smooth Proxy)**
-
-## Low poly practice related images
+## Low poly practice related images from Pinterest
 ![pinterest](https://i.pinimg.com/564x/cf/0f/2d/cf0f2d0d29d5b0180e639b901414bf8c.jpg)  
-![pinterest](https://i.pinimg.com/564x/48/a3/32/48a332174492087e702bd75f7d2e40b1.jpg)  
-![pinterest](https://i.pinimg.com/564x/ae/12/bb/ae12bb24a4dcdad55d51154f3c55ef6d.jpg)  
-![pinterest](https://i.pinimg.com/564x/4b/34/61/4b3461a6d2e927a67870015e503cf405.jpg)
+from https://www.facebook.com/365610153629761/photos/pcb.434816053375837/434815546709221/?type=3&theater
+
+![pinterest](https://i.pinimg.com/564x/48/a3/32/48a332174492087e702bd75f7d2e40b1.jpg)    
+from Pinterest
+
+![pinterest](https://i.pinimg.com/564x/ae/12/bb/ae12bb24a4dcdad55d51154f3c55ef6d.jpg)    
+from Pinterest
+
+![pinterest](https://i.pinimg.com/564x/4b/34/61/4b3461a6d2e927a67870015e503cf405.jpg)  
+from Pinterest
 
 ## Voxel art
 ![pinterest](https://i.pinimg.com/564x/24/4b/43/244b4310550aca808ccee575e9619b9a.jpg)  
+Pinterest
 
 ## Inspiration
 - [Jeremy Edelblut DemoReel 2016](https://vimeo.com/161523644)  
-	- [Jeremy Edelblut](http://jeremyedelblut.com/)
-	- [Jeremy Edelblut](https://www.behance.net/gallery/28605433/Summer-Doodles)  
+	- [Jeremy Edelblut I](http://jeremyedelblut.com/)
+	- [Jeremy Edelblut II](https://www.behance.net/gallery/28605433/Summer-Doodles)  
 	
-		 ![je](https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/ea614128605433.55c911ab4e624.png)
+![je](https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/ea614128605433.55c911ab4e624.png)
+by Jeremy Edelblut (Jeremyedelblut.com) 
+ 
 
-## Low poly tutorial
-- [How to make low-poly buildings for games
-By Creative Bloq Staff October 10, 2012](https://www.creativebloq.com/how-make-low-poly-buildings-games-10123111)  
-![tutorial](https://cdn.mos.cms.futurecdn.net/fe30dac7e3608e960e123608b628d13f-650-80.jpg)  
-- [Good quality mobile game animations – A Koukoi Games guide
-by Antti Kananen on 03/14/16](https://www.gamasutra.com/blogs/AnttiKananen/20160314/267983/Good_quality_mobile_game_animations__A_Koukoi_Games_guide.php)  
-![tutorial](http://koukoi.com/koukoi/wp-content/uploads/2016/03/cs_character-design_arctic_fox-1.png)  
+## Game asset tutorial
+- [Minions Art is creating Game Art Tips and Astro Kat, a Catventure game! in Patreon](https://www.patreon.com/minionsart)  
+
+## LODs: Cinematic vs game model
+LOD is the acronym for level of detail. Models built for interactive 3D are primarily polygonal models that use controlled polygon counts to suit gaming engines. Some next-generation game engines already have support for Bezier geometry, and NURBS and Subdivision surfaces may soon follow. 
+
+![lod](img/lod.png)  
+Cinematic model and game model. Image from the book Rigging for Games by Eyal Assaf.
+
+# Cleanup polygon models
+- [Maya help: Cleanup options](https://knowledge.autodesk.com/support/maya/learn-explore/caas/CloudHelp/cloudhelp/2018/ENU/Maya-Modeling/files/GUID-AB60C982-C96E-4947-8CF3-5152406B6A40-htm.html) 
+- [Maya help: Two-manifold and non-manifold polygonal geometry](https://knowledge.autodesk.com/support/maya/learn-explore/caas/CloudHelp/cloudhelp/2018/ENU/Maya-Modeling/files/GUID-8E97CEF7-1CFE-4838-B4B7-59F526E21AB2-htm.html) 
+
+The Cleanup feature lets you remove unwanted geometry from a polygon mesh (for example, zero area faces or zero length edges). You can also tessellate faces that may be valid within Maya, but not in a game console, such as concave faces, or faces with holes.  
+
+Because the Cleanup feature has the ability to merge vertices and collapse zero length edges, there may be situations where the Cleanup feature can output non-manifold geometry. This can occur when you set the Cleanup options to perform multiple cleanup operations on a mesh in a cascading way. If this situation is likely, it is recommended you run the Cleanup feature multiple times and turn on the Non-Manifold Geometry option in the Remove Geometry section only on the last iteration.
+To clean up polygon meshes
+
+- Select the polygon mesh you want to clean up.  
+- Select Mesh > Cleanup.  
+
+
+## Tutorial: low poly robot 
+- [Link to Safari books online](http://proquestcombo.safaribooksonline.com.ezproxy.torontopubliclibrary.ca/book/animation-and-3d/9780240816067/chapter-6-modeling-the-robot-in-maya/14_chapter06_xhtml?uicode=torontopl)  
+- Chapter 6: Modeling the Robot in Maya  
+	- Modeling the Low Poly Version  
+	- Unwrapping the Robot  
+	- Baking the Texture Maps
+	- Texturing the Robot  
+	
 
 ## Modeling toolkit
 - [Maya help docu](http://help.autodesk.com/view/MAYAUL/2018/ENU/?guid=GUID-D4CD168A-34F2-465B-A39C-DE20B34E5535)  
-![maya](http://help.autodesk.com/cloudhelp/2018/ENU/Maya-Modeling/images/GUID-17DA21F5-4502-489B-90DA-CA1949B919AE.png)  
+![maya](http://help.autodesk.com/cloudhelp/2018/ENU/Maya-Modeling/images/GUID-17DA21F5-4502-489B-90DA-CA1949B919AE.png)  	
 
+__________
+# Lego chracter modeling & texturing
 
+![lab01](img/maya/character/legoman.jpg)    
+![lab03](img/maya/character/legoman_front.png) ![lab04](img/maya/character/legoman_side.png)  
+![lab03_01](img/maya/character/legoman_front01.png) 
+![lab04_01](img/maya/character/legoman_side01.png)
+![lab05](img/maya/character/spiderman_front.jpg)  
+![lab06](img/maya/character/spiderman_back.jpg) 
+![lab07](img/maya/character/spiderman_side.jpg) 
+
+## What to do:
+- Preparation
+- Low polygon modeling
+- UV texturing
+- Shading, lighting, and rendering controls
+- Smoothing the polygon
+
+## Important commands and tips:
+- Commands:
+	- Extrude
+	- Booleans
+	- Selections
+	- Deformers
+- Tips:
+	- Spend some time to **analyze and plan** before beginning the modeling processes. 
+	- Well prepared blueprints are important to the modeling processes.	
+	- Switch often to check its position from the side, front, and perspective view.
+	- Menu / Select tools are useful and efficient.
+	- Naming: in the outline and layer editor, from time to time spend some time to name them properly. It will help a lot to work on more complex modeling tasks.   
+	- Using Layer editor and Shading options to control its **transparent/opaque views** and **templete/reference/object** view & selection modes.
+
+-------------------------
+
+## Preparation
+- Prepare the front and side images of a Lego model.
+- Importing blueprints to a front camera and a side camera (View / Image Plane).
+
+![pre](img/maya/character/imageplane.png) 
+
+- You can adjust the image plane position: using the Image Center X, Y, or Z.   
+And check out the attributes of the image plane from its attribute editor. 
+	
+![pre01](img/maya/character/imageplane01.png) 
+
+------------------------------
+## Low polygon modeling
+### Head
+- Create from a cylinder polygon object and modify its position and scale. (subdiv: 12) 
+- From the front view, go to the component face selection mode and drag - select faces and from the menu Select / Shrink to select only top faces or neck faces and apply Edit Mesh / **Extrude**. Click its local / world switch and move & scale and apply Extrude to make the head-top or neck geometry: ***Be careful not to apply several extrude commands at once. It is easy to do so. Use Undo to make sure that you didn't multi-fully applied the same function.***
+ 
+ 
+![head](img/maya/character/ext.png)  
+
+### Body
+- Start from a box. Move & scale it and use its vertices to make the right shape.  
+
+![body](img/maya/character/body.png)  
+
+- Use Extrude to make the lower body.
+
+### Middle belt piece
+![belt](img/maya/character/belt.png)  
+ 
+- From the side view, let's start a cylinder to make the lower part of belt. 
+- Create a box for a belt and apply Mesh / **Booleans / Union** to make an unified geometry.
+
+### Leg
+- Create a cylinder and go to the side view and locate it.
+
+![leg01](img/maya/character/leg01.png)  
+
+- In the component mode, select faces as the image below and delete them.
+
+![leg02](img/maya/character/leg02.png)  
+
+- Select the edge and extrude.
+
+![leg03](img/maya/character/leg03.png)  
+
+- Select the edge and extrude several times to make the faces of the leg as the image below using the front and side view.
+
+![leg04](img/maya/character/leg04.png)  
+![leg05](img/maya/character/leg05.png)  
+
+- Apply the **Mesh Tools / Append to Polygon** to create the bottom face of the leg. After this, apply the **Mesh / Fill Hole** to create the closed mesh.  
+
+![leg06](img/maya/character/leg06.png)  
+
+- Now create a box to prepare the Boolean operation. Create a box bigger than the leg we created and from the front view, rotate it as the image plane. Select the leg and the shift select the box and apply Mesh / **Booleans / Difference.** 
+
+![leg07](img/maya/character/leg07.png)  
+
+- This time create a cylinder which is a bit larger than the lower belt part and select the leg and the cylinder and apply Mesh / **Booleans / Difference.** 
+
+![leg08](img/maya/character/leg08.png) 
+
+- Now right leg is done. Before duplicating it, let's clean it. Go to Edit and **Delete by Type / History.** 
+  
+![leg09](img/maya/character/leg09.png)  
+
+- In order to use the duplicate special, let's **reset Transformation** to make the manipulator locate in the world center.
+ 
+![leg10](img/maya/character/leg10.png)  
+
+- Let's duplicate special. Note that scale X value is -1. 
+
+![leg11](img/maya/character/leg11.png)  
+
+- Great! Now we completed the legs. 
+- Plus, we can duplicate legs and make them a bit larger and apply Booleans / Difference to the belt to complete the belt.
+
+![leg12](img/maya/character/leg12.png)  
+
+----------------------------------------------------------------
+
+### Arm
+- Let's create a sphere and delete its faces to fit the contour of the image plane. 
+- Then, extrude the edge three times (choose one edge and apply **Select / Contiguous Edges** to select the entire edge perimeter) to make a base arm mesh. (when you apply the second extrude, increase its Divisions to 4 to make more lines for its deformation later.)
+
+![arm01](img/maya/character/arm01.png)  
+
+- Now apply **Deform / Lattice** to shape the arm. You can control the grid complexity using S, T, U divisions and its components are the Lattice Point. Using the lattice points, you can control and shape the main geometry.   
+
+![arm02](img/maya/character/arm02.png)  
+![arm03](img/maya/character/arm03.png)  
+![arm04](img/maya/character/arm04.png)  
+
+- Once shaping the arm is done, apply Mesh / Fill Hole to close it. 
+
+![arm05](img/maya/character/arm05.png)  
+
+- You can use the sculpt tool to add more fine controls. 
+
+![arm06](img/maya/character/arm06.png) 
+
+### Hand
+- Preparation: let's start from a Polygon Pipe. Transform it and then in the component mode, delete faces to shape it. You can apply Mesh / Fill Hole to close the mesh. 
+
+- Once it's done, you can apply lattices not only to an object but also to selected faces to deform. I applied the lattice to inner faces once and to outer faces again.   
+
+![hand01](img/maya/character/hand01.png) 
+
+- When the hand is done, you can extrude the face from the arm to make a wrist. Then apply Booleans / Union to complete. 
+ 
+![hand02](img/maya/character/hand02.png) 
+
+- Duplication: now delete its history and apply Reset Transformations and apply duplicate it with -1 scale X to complete both arms.  
+
+![hand03](img/maya/character/hand03.png)  
+![hand04](img/maya/character/hand04.png) 
+
+- *Congratulations!* The low polygon modeling is completed. Before starting the UV layout, please delete all histories and work on naming in the outliner and layer editor.
+
+![hand05](img/maya/character/hand05.png) 
+
+______________________________
+## Preparation for **group presentation** next week  
+### Initial group presentation detail:
+
+- Bring your presentation file and later upload it as a pdf to Canvas.  
+- Length: 4 to 6 slides  
+- What to include: 
+
+	- Your team name and member names
+	- Subject/theme  
+	- Style
+	- Role of each member 
+	- Schedule 
+	- Planed final form of delivery
+	
 
 </div>
 <div id="wrapper">
