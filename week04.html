@@ -21,10 +21,11 @@ A guide to markdown syntax is at http://daringfireball.net/projects/markdown/
 <div style="display: none" id="sourcetext">
 
 # Week 4
-- Lecture: Polygon modeling process. 
-- Tutorial: Introduction to polygon modeling I  
+
+- Polygon modeling. 
 - Production 1: Modeling: divide roles to landscape, architecture, object, and (simple) character. 
 - Making: Modeling: sketch, research, polygon modeling.  
+- Team discussion.  
 - Assignment: Continuously work on your process report.
 
 ___________________	
@@ -35,7 +36,7 @@ ___________________
 
 ## Low poly practice related images from Pinterest
 ![pinterest](https://i.pinimg.com/564x/cf/0f/2d/cf0f2d0d29d5b0180e639b901414bf8c.jpg)  
-from https://www.facebook.com/365610153629761/photos/pcb.434816053375837/434815546709221/?type=3&theater
+LOD modeling example from https://www.facebook.com/365610153629761/photos/pcb.434816053375837/434815546709221/?type=3&theater
 
 ![pinterest](https://i.pinimg.com/564x/48/a3/32/48a332174492087e702bd75f7d2e40b1.jpg)    
 from Pinterest
@@ -68,6 +69,36 @@ LOD is the acronym for level of detail. Models built for interactive 3D are prim
 ![lod](img/lod.png)  
 Cinematic model and game model. Image from the book Rigging for Games by Eyal Assaf.
 
+# Invalid polygon geometry
+Some types of polygon geometry will not work in Maya. Invalid geometry includes vertices that are not associated with a polygon edge and polygon edges that are not part of a face (dangling edges). 
+
+## Solution
+- Converting polygon faces to triangles is a quick way to ensure non-planar faces render properly.    
+- Or converting polygon faces to quads is a good way to clean up polygons or reduce the number of faces. 
+
+![poly03](img/maya/polygon/mn.png)  
+
+## Two-manifold vs. non-manifold 
+
+- Polygonal geometry can have different configurations or topology types in Maya. Understanding the characteristics of these topologies can be helpful when you need to understand why a modeling operation failed to execute as expected.
+
+- **Two-manifold topology polygons** have a configuration such that the polygon mesh can be split along its various edges and subsequently unfolded so that the mesh lays flat without overlapping pieces.
+
+- **Non-manifold topology polygons** have a configuration that cannot be unfolded into a continuous flat piece. Some tools and actions in Maya cannot work properly with non-manifold geometry. For example, the legacy ***Boolean*** algorithm and the ***Reduce*** feature do not work with non-manifold polygon topology. The image below shows three examples of non-manifold topology polygons.
+
+![poly04](img/maya/polygon/manyf.png) 
+
+The following operations in Maya can produce non-manifold geometry:
+
+- Select Faces or Edges and select Edit Mesh > **Extrude.**     
+- **Normals > Reverse** (without extracting geometry). 
+- Edit Mesh > **Merge**  Components. 
+- **Delete** Face.  
+- Edit Mesh > Merge Components to Center 
+
+You can convert non-manifold topology polygons into two-manifold topology (including the less obvious case of adjacent faces with opposite normals) using the **Mesh > Cleanup** tool in Maya.
+
+
 # Cleanup polygon models
 - [Maya help: Cleanup options](https://knowledge.autodesk.com/support/maya/learn-explore/caas/CloudHelp/cloudhelp/2018/ENU/Maya-Modeling/files/GUID-AB60C982-C96E-4947-8CF3-5152406B6A40-htm.html) 
 - [Maya help: Two-manifold and non-manifold polygonal geometry](https://knowledge.autodesk.com/support/maya/learn-explore/caas/CloudHelp/cloudhelp/2018/ENU/Maya-Modeling/files/GUID-8E97CEF7-1CFE-4838-B4B7-59F526E21AB2-htm.html) 
@@ -79,7 +110,76 @@ To clean up polygon meshes
 
 - Select the polygon mesh you want to clean up.  
 - Select Mesh > Cleanup.  
+	
 
+## Modeling toolkit
+- [Maya help docu](http://help.autodesk.com/view/MAYAUL/2018/ENU/?guid=GUID-D4CD168A-34F2-465B-A39C-DE20B34E5535)  
+![maya](http://help.autodesk.com/cloudhelp/2018/ENU/Maya-Modeling/images/GUID-17DA21F5-4502-489B-90DA-CA1949B919AE.png)  	
+
+_________________
+
+# Import modeling & animation assets from Maya
+## File format to use: OBJ or FBX
+### Obj
+OBJ has it’s origins with Alias Wavefront, a simple data-format that represents 3D geometry — namely, the position of each vertex, the UV position of each texture coordinate vertex, vertex normals, and the faces that make each polygon defined as a list of vertices, and texture vertices. 
+
+- [Comparison I between OBJ & FBX](http://aecobjects.com/2014/10/which_format_is_better/)
+- [Comparison II between OBJ & FBX](http://www.reallusion.com/iclone/help/3DXchange5/Pipeline/05_Export/The_Comparison_of_OBJ_FBX.htm)
+
+### FBX
+
+FBX is a file format owned and developed by Autodesk. It is used to provide interoperability between digital content creation applications such as Autodesk MotionBuilder, Autodesk Maya, and Autodesk 3ds Max. Autodesk MotionBuilder software supports FBX natively, while Autodesk Maya and Autodesk 3ds Max software include FBX plug-ins.
+
+Unreal Engine features an FBX import pipeline which allows simple transfer of content from any number of digital content creation applications that support the format.
+
+The advantages of the Unreal FBX Importer over other importing methods are:
+
+- Static Mesh, Skeletal Mesh, animation, and morph targets in a single file format.
+- Multiple assets/content can be contained in a single file.
+- Import of multiple LODs and Morphs/Blendshapes in one import operation.
+- Materials and textures imported with and applied to meshes.  
+- [FBX Content Pipeline in Unreal Engine 4](https://docs.unrealengine.com/latest/INT/Engine/Content/FBX/index.html)  
+
+#  WebVR / WebAR and glTF
+## WebAR
+- [Creating Augmented Reality with AR.js and A-Frame](https://aframe.io/blog/arjs/) by Jerome Etienne.
+
+![ar](https://user-images.githubusercontent.com/6317076/27866704-452eaed6-618f-11e7-9cdd-2deaef865e3e.png) 
+
+- [WebVR for Augmented Reality](https://medium.com/arjs/webvr-for-augmented-reality-f1e69a505902)  
+
+## WebVR
+- [WebVR](https://webvr.info/) is an open specification that makes it possible to experience VR in your browser. The goal is to make it easier for everyone to get into VR experiences, no matter what device you have.
+
+## glTF
+		
+- [glTF](https://www.khronos.org/gltf/): efficient runtime 3D asset delivery. Portable 3D graphics transmission Format.    
+glTF™ (GL Transmission Format) is a royalty-free specification for the efficient transmission and loading of 3D scenes and models by applications. glTF minimizes both the size of 3D assets, and the runtime processing needed to unpack and use those assets. glTF defines an extensible, common publishing format for 3D content tools and services that streamlines authoring workflows and enables interoperable use of content across the industry.  
+	- Compact to transmit.  
+	- Fast to load.  
+	- Describes full scenes.   
+	- Runtime neutral.  
+	- Open and extensible.  
+	
+![production](img/glTF.png)	
+	
+- [Physically-Based Rendering: From Theory to glTF](https://github.com/moneimne/glTF-Tutorials/tree/master/PBR)  
+
+- [slide: glTF 2.0 Launch
+Web3D Conference, June 2017](https://www.khronos.org/assets/uploads/developers/library/2017-web3d/glTF-2.0-Launch_Jun17.pdf)  
+
+- [glTF Tutorial](https://github.com/KhronosGroup/glTF-Tutorials/blob/master/gltfTutorial/README.md)  
+
+	
+- Maya to glTF	
+	- [Maya2glTF converter](https://github.com/Ziriax/Maya2glTF)  
+	- [Exporting glTF 2.0 from Maya LT](https://www.donmccurdy.com/2017/06/27/exporting-gltf-2-0-from-maya-lt-2/)
+
+- Blendergltf
+	- [Blendergltf](https://github.com/Kupoman/blendergltf) is an addon for Blender that adds the ability to export to the glTF format. This addon started its life as part of the Blender Real TimeEngine addon in order to provide a convenient way of streaming scene data to real time engines. As interest has grown in glTF, the glTF exporting code of the Blender Real Time Engine addon was moved into this repository to be used as both a Python module and a Blender addon.
+
+__________
+# Modeling tutorials
 
 ## Tutorial: low poly robot 
 - [Link to Safari books online](http://proquestcombo.safaribooksonline.com.ezproxy.torontopubliclibrary.ca/book/animation-and-3d/9780240816067/chapter-6-modeling-the-robot-in-maya/14_chapter06_xhtml?uicode=torontopl)  
@@ -89,13 +189,7 @@ To clean up polygon meshes
 	- Baking the Texture Maps
 	- Texturing the Robot  
 	
-
-## Modeling toolkit
-- [Maya help docu](http://help.autodesk.com/view/MAYAUL/2018/ENU/?guid=GUID-D4CD168A-34F2-465B-A39C-DE20B34E5535)  
-![maya](http://help.autodesk.com/cloudhelp/2018/ENU/Maya-Modeling/images/GUID-17DA21F5-4502-489B-90DA-CA1949B919AE.png)  	
-
-__________
-# Lego chracter modeling & texturing
+## Lego chracter modeling & texturing
 
 ![lab01](img/maya/character/legoman.jpg)    
 ![lab03](img/maya/character/legoman_front.png) ![lab04](img/maya/character/legoman_side.png)  
@@ -250,43 +344,35 @@ And check out the attributes of the image plane from its attribute editor.
 
 ![hand05](img/maya/character/hand05.png) 
 
-______________________________
-## Preparation for **group presentation** next week  
-### Initial group presentation detail:
+# Discussion & group formation
 
-- Bring your presentation file and later upload it as a pdf to Canvas.  
-- Length: 4 to 6 slides  
-- What to include: 
-
-	- Your team name and member names
-	- Subject/theme  
-	- Style
-	- Role of each member 
-	- Schedule 
-	- Planed final form of delivery
-	
+# Assignment detail  
+## An (online) journal
+## Reading
+## Making	
+## Action item
 
 </div>
 <div id="wrapper">
 	
 	<div class="header">
 		<h2>LowPolyGameArt</h1>		
-		<a href="index.html">Class outline</a><br/>
-		<a href="https://docs.google.com/spreadsheets/d/1Ob78eq8feKOhmdlHK3AJx71cI1p53jYFvdmVWf0fhV0/edit?usp=sharing">Schedule/Attendance</a><br/>
+		<a href="https://docs.google.com/spreadsheets/d/1Vxsw5zuTVJNBiI2C5LmYeX_FaB9K12r2HxIJKMHLJKk/edit?usp=sharing">Attendance</a><br/>
 		<a href="https://jiharu.github.io/intm3d/week01.html">3D modeling & animation class note</a><br/>
-		<a href="https://www.lynda.com/SharedPlaylist/43c97ef889cb4691a6fbd64b4d04a23c?org=ocadu.ca">Linda.com related tuorial</a><br/><br/>
+		<a href="https://www.lynda.com/SharedPlaylist/43c97ef889cb4691a6fbd64b4d04a23c? org=ocad.ca">Linda.com related tuorial</a><br/><br/>
 					
 		<h3>Class schedule</h3>	
-				<a href="week01.html">Introduction</a><br/>
-				<a href="week02.html">Group matching</a><br/>
-				<a href="week03.html">Modeling I</a><br/>
-				<a href="week04.html">Modeling II</a><br/>
-				<a href="week05.html">UV texturing</a><br/>							
+				<a href="index.html">Class outline</a><br/>
+				<a href="week01.html">1. Notgames/Indie games</a><br/>
+				<a href="week02.html">2. Concept art</a><br/>
+				<a href="week03.html">3. Finalizing Pre-production</a><br/>
+				<a href="week04.html">4. Modeling</a><br/>
+				<!--<a href="week05.html">UV texturing</a><br/>							
 				<a href="week06.html">Shading & Texturing</a><br/>  
 				<a href="week07.html">Game production</a><br/>
 				<a href="week08.html">3D sculpt & Motion capture</a><br/>	
 				<a href="week09.html">LOD & Kinematics</a><br/>
-				<a href="week10.html">Independent project & Game as art</a><br/><!--		
+				<a href="week10.html">Independent project & Game as art</a><br/>	
 				<a href="week11.html">11: Arnold: Physically Based Renderer</a><br/>
 				<a href="week12.html">12: Rendering</a><br/>-->
 	</div>
@@ -298,7 +384,7 @@ ______________________________
 		</script>
 	</div>
 	
-	<div class="footer">H Ji, 2018</div>
+	<div class="footer">H Ji, 2019</div>
 	
 </div>
 </body>
