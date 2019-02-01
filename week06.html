@@ -20,15 +20,175 @@ A guide to markdown syntax is at http://daringfireball.net/projects/markdown/
 
 <div style="display: none" id="sourcetext">
 
-# Week 6: Shading & texturing
+# Week 6
 
-- Lecture: Introducing UV texturing.     
-- Tutorial: Texturing.    
-- Making: Polygon modeling and texturing.   
+- Texture baking, sculpting & LOD.    
+- Lecture: Introducing Texture baking in Turtle, LOD pipeline using Sculptris.     
+- Making: Texture baking, 3D sculpting in LOD pipeline.    
 - Hands on studio: team discussion & making.  
-- Assignment: Continuously work on your process report.
+- Assignment: Continuously work on your process report. Review & installing Unity.  
 
 _____________________________________
+
+>Texture baking is the process of transferring details from one model to another.
+
+>The baking tool starts a certain distance out from the model (usually a low-resolution model for game use), and casts rays inwards towards another model (usually a high-resolution sculpt). When a ray intersects the 2nd model, it records the surface detail and saves that into a texture map, using the first model's Texture Coordinates.
+
+>Baking tools support multiple map types. High-resolution normals go into a Normal map, occlusion goes into an Ambient occlusion map, etc.
+
+>from [Texture Baking from http://wiki.polycount.com/wiki/Texture_Baking](http://wiki.polycount.com/wiki/Texture_Baking)  
+
+
+Bake textures with Turtle
+
+- [Bake textures with Turtle](https://knowledge.autodesk.com/support/maya-lt/learn-explore/caas/CloudHelp/cloudhelp/2018/ENU/MayaLT-TextureBaking/files/GUID-6DD4CE1F-7693-4894-BE82-7685BDD1F557-htm.html)
+
+![Autodesk](http://damassets.autodesk.net/content/dam/autodesk/www/products/autodesk-maya-lt/responsive-center/images/improved-turtle-baking-tools-large-1152x648.jpg)   
+Image address from https://www.autodesk.eu/products/maya-lt/features/lighting-materials-and-texture-baking/improved-turtle-baking-tools
+
+## Video tutorial
+- [How to Bake Textures ready for Games in Blender  0
+BY PIETRO CHIOVARO ON NOVEMBER 12, 2018](https://www.blendernation.com/2018/11/12/how-to-bake-textures-ready-for-games-in-blender/)  
+
+- [Texture Baking](https://3dtotal.com/tutorials/t/texture-baking-richard-tilbury-max-photoshop#article-introduction)  
+- [Maya LT for Unity Developers: Texture Baking with Turtle](https://knowledge.autodesk.com/support/maya-lt/learn-explore/caas/video/youtube/watch-v-EoS5QyaRZYk.html)   
+www.autodesk.com/mayalt In this series Wes McDermott goes through various aspects of using Maya LT to create assets for games using Unity. Find Wes on Twitter, @the3dninja. In this video, Wes gives an introduction to using the Turtle Texture Baking technology built into Maya LT, in consequence of using Unity. Wes shows a common workflow for baking low resolution textures from a higher resolution source surface, using the Turtle baking features built into Maya LT.
+
+## Advanced Baking - Baking Next-Gen lighting with Turtle
+- [Tutorial](https://3dtotal.com/tutorials/t/advanced-baking-next-gen-lighting-with-turtle-illuminate-labs-maya#article-lets-start)
+
+# 3D sculpt
+
+3D sculpt tools can allow many artists the freedom of creation to manifest visually compelling sculptures, abstract shapes, and free-flowing forms. They also offer very powerful and intuitive 3D painting.
+______________________
+
+# Sculptris 
+Pixologic’s Sculptris is a scaled-down version of ZBrush, a professional 3D sculpting software. Sculptris is one of best free software for organic modeling.
+
+## Download
+[Pixologic.com/sulptris/](http://pixologic.com/sculptris/)  
+
+>Sculptris is no longer being actively developed by Pixologic and is considered a legacy application. While we are still making it available for free to those people that can run it, be warned that the most current version was released in 2011 and may not function on many newer computer systems. Since it is free, we encourage you to give it a try and see if it will work on your computer. By downloading, you accept that technical support will not be available for Sculptris. - from Pixologic.com
+
+## Feature
+
+### Freeform design
+
+The challenge with most CAD precision-based modeling tools is that the solid-modeling design process can be time-consuming, and not particularly suited for organic forms. Organic modeling tools such as Sculptris offer immediate satisfaction by allowing designers to pull, stretch, and contort a digital “ball of clay.” While initially the process is less precise, the digital ball of clay can be refined to create highly detailed objects. A model being developed using Sculptris’ freeform techniques is similar to sculpture created by an artist using clay in the real world. With Sculptris, highly intricate and organic forms can be developed quickly, giving the designer instant satisfaction as the digital model is being developed.
+
+### Levels of detail
+
+Models created in freeform, organic tools such as Sculptris are no different from models found in most other 3D-modeling applications since a 3D model in Sculptris is nothing more than a polygonal object composed of tessellated faces. The main difference is that the faces on a model using a digital sculpting application such as Sculptris can number into the thousands, or even millions. The polygon faces found on a Sculptris model are extremely small, sometimes the size of pixel. Since the polygons are so small, they are imperceptible as the designer manipulates and stretches the Sculptris model to create new forms. Because of the many polygonal faces involved, models in organic sculpting packages such as Sculptris are referred to as high-resolution geometry. This high-resolution geometry can be more clearly seen by observing a Sculptris model in wireframe mode.
+
+Note: Hitting the W key in Sculptris allows users to see the wireframe of the model, which reveals the many triangle faces with greater clarity. This is called wireframe mode.
+
+## Explore Sculptris
+
+The workflow for Sculptris is pretty simple. When the application is first opened, centered in the screen will be a spherical, digital ball of clay. In the upper-left corner are the sculpting tools that will let you push, pull, and distort the clay sphere. 
+
+![howto](img/10/sculptris.png)
+
+## How to navigate:
+
+Clicking and dragging freely allows users to rotate the model they are working on. Pressing **Alt/Option** while clicking and dragging will pan the view. Pressing **Ctrl/Cmd** while right-clicking and dragging will allow you to zoom in and out of the scene. The scroll wheel on a three-button mouse will allow zooming in and out as well.
+
+## Practice
+- Begin by manipulating the spherical ball with the **Draw tool**. The Draw tool, if not already selected (selected tools are highlighted in orange), can be accessed by pressing the D keyboard shortcut.
+
+- Play with several of the sliders in horizontal menu as you draw.
+
+	- Increase or decrease the **Size** slider to change the area being sculpted.
+	- Increasing or decreasing the **Strength** slider changes the intensity of the brush.
+	- Increasing the **Detail** value affects the amount of surface detail affected and applies a higher level of distortion (depending on the sculpting tool selected) to the digital clay.
+
+As you draw, you will first notice that your actions are duplicated on the other side of the sphere. This is because, by default, **Symmetry** is enabled. If you want to disable Symmetry, turn off the Symmetry button. When Symmetry is turned on, the button is highlighted in orange.
+
+Experiment with various brushes as you get used to the sculpting process. Adjust the size, strength, and quality as you sculpt. If things get messy, try using the Smooth tool and reduce the complexity of the model. You can also activate the functionality of the Smooth tool by using the **Shift** key as you sculpt.
+
+## A breakdown of the sculpting tools
+
+- [Sculptris edutechwiki docu](https://edutechwiki.unige.ch/en/Sculptris)  
+
+![docu](img/10/sculptris_cheat_sheet.png)
+
+- [Sculptris cheat sheet](http://members.casema.nl/jw.v.dronkelaar/sculptris_cheat_sheet.pdf)  
+
+There are nine basic sculpting tools in the Sculptris.
+
+![howto01](img/10/sculptris01.png)
+
+### The Crease tool
+
+The Crease tool makes a sharp indentation into the sculpted surface. The effect is similar to using a sharp stick to draw gouges into clay. **Inverting** the brush (hit the **X key** or hold down **Option/Alt** while you sculpt) will create sharp ridges.
+
+### The Draw tool
+
+The Draw tool creates a rounded, hill-like extrusion on the surface on the model. Selecting Inverse creates a trough-like recess in the surface. Using the **Clay** option creates a flatter plateau on the surface. The **Soft** option helps give the stroke smoother edges.
+
+### The Flatten tool
+
+The Flatten tool levels the surface off to a flat plane.
+
+### The Inflate tool
+
+Inflate will make an area balloon outward. If the detail is set to the highest setting and Inflate is used multiple times, it’s possible to create long tentacles that extend out from the surface. Using the Alt/Option keyboard shortcut has the opposite effect, creating hollows and holes in the surface.
+
+### The Pinch tool
+
+Pinch draws the polygons on the surface to create creases and ridges. Using Pinch is a good way to get hard edges on the surface of the sculpted object.
+
+### The Grab tool
+
+The Grab tool will push and pull large sections of the model. This is a great way to develop the initial form of a model before more detailed sculpting occurs.
+
+### The Smooth tool
+
+The Smooth tool will diminish areas of high detail and bring back the original surfaces.
+
+- Note: Holding the **Shift** key while sculpting will provide the equivalent functionality of using the Smooth tool.
+__________________
+
+## Video tutorial
+### Painting and creating textures
+- [Sculptris Painting Primer by 3dioot, 55:00](https://vimeo.com/13982936)  
+
+### Head sculpture
+- [Sculptris - Female Head Part I by Philip Witte, 10:59](https://www.youtube.com/watch?v=KrViiOLTWTM&t=2s) 
+- [3DToons Sculptris Demo by 3dtoons, 38:29](https://www.youtube.com/watch?v=U9Dxi5fCd0Q&t=1424s) 
+
+__________________
+
+## Maya and Sculptris workflow
+- In Maya, create a low polygon object. Export it as .obj 
+- In Sculptris, import your Maya object. What you can do includes:	
+	- Sculpting: use the Maya model as a base model, you can develop your organic modeling. Once it is done, you can use the model data as it is or you can create a normal map too. 
+	- Level of detail: you can create high-resolution modeling.
+	- Painting: you can work to create color, normal, and bump textures. Also you can export the geometry as .obj file.
+	- Remember in this case, Sculptris will generate UV texture automatically.
+	- If you want to use your manual UV unwrapping, you need to import your Sculptris model (.obj) into Maya or Blender to do the UV unwrapping. Then you can move to the next workflow steps of creating textures, producing more LOD models, as well as texture baking.
+	
+___________________________	
+	
+## Inspiration: VR in VR
+-  [Bringing a Van Gogh Painting to VR](https://connect.unity.com/p/articles-bringing-a-van-gogh-painting-to-vr)  
+- [Blocks](https://vr.google.com/blocks/) - Create 3D models in VR - Google VR	
+- [Building VR in VR with Unreal Engine 4 - Early Preview [1:58]](https://www.youtube.com/watch?v=JKO9fEjNiio)  
+
+# Asset creation 
+## 3D Viewer
+- Google Poly  
+- Autodesk 3D viewer
+- Sketchfeb    
+
+## Tutorials
+
+___________________________
+
+# Assignment
+- Install Unity and explore it
+- Tutorial
+- Make one with low poly test
+
 
 
 
@@ -50,7 +210,7 @@ _____________________________________
 				<a href="week03.html">3. Finalizing Pre-production</a><br/>
 				<a href="week04.html">4. Modeling</a><br/>
 				<a href="week05.html">5. UV texturing</a><br/>							
-				<a href="week06.html">6. Texturing & Rendering</a><br/>  
+				<a href="week06.html">6. Baking textures</a><br/>  
 				<!--<a href="week07.html">Game production</a><br/>
 				<a href="week08.html">3D sculpt & Motion capture</a><br/>	
 				<a href="week09.html">LOD & Kinematics</a><br/>
