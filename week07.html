@@ -20,186 +20,206 @@ A guide to markdown syntax is at http://daringfireball.net/projects/markdown/
 
 <div style="display: none" id="sourcetext">
 
+# Week 7
+
+## Level of Detail
+Level of Detail (LOD) is an effective optimization technique. It is to use a coarser-level geometric representation of an object in the far distance, that has a similar appearance to the high-level representation used in close distance, but requires less data to be processed by the CPU and GPU to save computational resources.  
+
+## LOD category
+### Sprites or Billboards
+2D representations of 3D objects that are used to reduce the complexity of the object. e.g., trees are drawn as a pair of rectangles with alpha-blended textures. A grandstand in an automobile race. The audience is typically drawn as rows of rectangular billboards that try to face the camera, but are constrained to rotate about the vertical axis. 
+### Discrete LOD
+Creating multiple representations of the same object. Selection of which representation is drawn is based on the distance of the LOD centre to the eye point (camera position).
+
+### Continous LOD
+An attempt to automate the generation of different-resolution representations of an object. For triangle meshes, the generation amounts to removing a few triangles at a time while trying to preserve the shape of the object. 
+### Infinite LOD 
+Generating an arbitrary number of triangles in a mesh that represents a smooth object. Given a surface representation of the object, a subdivision method is applied to tessellate the surface at run time.   
+  
+## LOD application
+You can model several versions of your mesh at different resolutions, and have the application engine switch between them automatically (from high level of detail to low level of detail) based on how near the camera is to the mesh. The high-detail version is shown when the camera is nearest to the model, and progressively lower-detail versions are rendered as the camera moves further away.  
+
+Commonly, three versions are imported for each model: high-res, mid-res, and low-res. 
+You can use the LOD Group component to set up LOD rendering for an object. For objects that are closer to the player, high LODs objects are rendered. Objects with higher LODs have a higher number of polygons. For objects that are far away from the player, a simpler version of the object is rendered instead in order to reduce the load on the hardware and to improve general rendering performance.
+
+Also, artists can create different LOD versions of the 3D object using automated LOD algorithms, deployed through software or manually reducing the number of vertices, normals, edges in the 3D Models, to create a lower polygon count model. When creating models of different LODs, note that it is better to create the most detailed model with the most number of polygons first and then reduce the number accordingly to create the other LOD versions. It is much harder to work the models the other way around. Do remember to keep the UV coherent when working with objects with different LODs. 
+
+## Unity manual: LOD
+- [https://docs.unity3d.com/Manual/LevelOfDetail.html](https://docs.unity3d.com/Manual/LevelOfDetail.html)  
+
+___________
+
+# Joint system
+## Skeletons & Skinning
+**Skeletons** are hierarchical, articulated structures that let you pose and animate bound models. A skeleton for a human avatar provides a deformable model with the same underlying structure as the human skeleton gives the human body. 
+
+![skl](img/maya/kinematic/comp_aboutWhatSkeletons.png)
+
+Just like in the human body, the location of joints and the number of joints you add to a skeleton determine how the skeleton’s bound model or ‘body’ moves. When you bind a model to a skeleton, it is called **skinning**.
 
 
+### Skeleton components
+A skeleton is composed of a series of **joints** and **bones** that form joint chains. You can pose and animate these joint chains using IK (inverse kinematics) handles or by translating or rotating individual joints (FK: forward kinematics).
 
-# Game asset tutorial
-- [Minions Art is creating Game Art Tips and Astro Kat, a Catventure game! in Patreon](https://www.patreon.com/minionsart)  
+![skl01](img/maya/kinematic/comp_jointBone.png)
 
-# Pipeline: rendering & baking textures
-## Turtle renderer
-[Maya help: Turtle renderer](https://knowledge.autodesk.com/support/maya/learn-explore/caas/CloudHelp/cloudhelp/ENU/123112/files/turtle-html.html)  
+### Joints
+Joints are the building blocks of skeletons and their points of articulation. Also, joints have no shape and therefore can not be rendered. Each joint can have one or more bones attached to it, and a number of child joints. Joints let you transform a skeleton when posing and animating a bound model. 
 
-Turtle is a sophisticated baking plug-in for Autodesk® Maya® software used for lighting and content creation in next-gen game development.
+### Bones
+Bones do not have nodes, and they do not have a physical or calculable presence in your scene. Bones are only visual cues that illustrate the relationships between joints.
 
-It is installed with Maya (starting version 2014).
+### Joint chains
+A joint chain is any group of joints and their bones connected in a series. Joints are connected linearly, and their paths are drawn on screen by the bones. A joint chain begins at the highest joint in the chain’s hierarchy, and its bones are drawn pointing down the chain.
 
-Turtle lets you:
+![skl03](img/maya/kinematic/comp_aboutJointChain.png)  
 
-- Create stunning global illumination for game levels.  
-- Bake illumination into texture maps, vertex maps, or point clouds.  
-- Bake occlusion and normal maps from detailed models to low-polygon models. 
+###Skeleton hierarchy
+A **parent joint** is any joint higher in a skeleton’s hierarchy than any of the other joints that are influenced by that joint’s actions. Joints below a parent joint in the skeleton hierarchy are called **child joints**. Joints at the top of bones are always parents, and joints at the bottom of bones are always children. Parent joints drive the transformations of their respective child joints. Thus, when you translate or rotate a parent joint, you also translate or rotate all of its child joints.
 
-## Tutorial
-- [Maya 2015 tutorial Did You Know About TURTLE renderer](https://www.youtube.com/watch?v=TB0n0eHc7zo)  
-- [BAKING NORMAL MAPS WITH TURTLE RENDER IN MAYA by lesterbanks](http://lesterbanks.com/2015/09/baking-normal-maps-with-turtle-render/)  
-- [Ambient Occlusion baking in Turtle](https://knowledge.autodesk.com/support/maya/learn-explore/caas/screencast/Main/Details/bfa463e1-203e-4ce0-8b4e-7d74f2fd663f.html)  
-- [Maya LT for Unity Developers: Texture Baking with Turtle](https://www.youtube.com/watch?v=EoS5QyaRZYk)  
-- [Rendering occlusion with the Turtle plug-in](https://knowledge.autodesk.com/support/maya/learn-explore/caas/video/youtube/watch-v-bwBYDWmROEA.html)  
-- [Advanced Baking - Baking Next-Gen lighting with Turtle](https://www.3dtotal.com/tutorial/1299-advanced-baking-next-gen-lighting-with-turtle-maya-misc-by-illuminate-labs) 
+![hier](img/maya/kinematic/hier.png)
 
-## Cinematography
+The **root joint** is the highest joint in a skeleton’s hierarchy. A skeleton can have only *one* root joint. You can move and orient the entire skeleton in world space by translating and rotating the root joint.
 
-- [Maya cinematography: 3D modeling and animation class note](https://jiharu.github.io/intm3d/week08.html)  
-- [Turtle video tutorial: Global illumination](http://download.autodesk.com/us/support/files/turtle_-_gi.m4v)    
-- [Turtle video tutorial: Image based lighting](http://download.autodesk.com/us/support/files/turtle_-_ibl.m4v)  
-
-# Pipeline: export & import assets 
-
-## Maya to Game Engine
-
-### References
-- [Maya 2018 online Help](http://help.autodesk.com/view/MAYAUL/2018/ENU//)  
-- [Unreal Engine 4 Documentation](https://docs.unrealengine.com/latest/INT/)  
-- [Unity Manual: Importing Objects From Maya](http://docs.unity3d.com/Manual/HOWTO-ImportObjectMaya.html)  
-- Art of Maya [pdf link](http://web.cse.ohio-state.edu/~parent/classes/682/MAYA/art_of_maya.pdf): P. 81~85: Interactive 3D.  
-- Book: Rigging for Games by Eyal Assaf, 2015: based on using Maya and Unity.
-
-## Unreal Engine 4
-Unreal Engine 4 is a complete suite of game development tools made by game developers, for game developers. From 2D mobile games to console blockbusters and VR, Unreal Engine 4 gives you everything you need to start, ship, grow and stand out from the crowd.
-- description by [Unreal Engine.](https://www.unrealengine.com/what-is-unreal-engine-4)  
-
-The Unreal Engine is a game engine developed by Epic Games, first showcased in the 1998 first-person shooter game Unreal. Although primarily developed for first-person shooters, it has been successfully used in a variety of other genres, including stealth, MMORPGs, and other RPGs. With its code written in C++, the Unreal Engine features a high degree of portability and is a tool used by many game developers today.
-
-The current release is Unreal Engine 4, designed for Microsoft's DirectX 11 and 12 (for Microsoft Windows, Xbox One, Windows RT); OpenGL (for OS X, Linux, PlayStation 4, iOS, Android, Ouya and Windows XP); and JavaScript/WebGL (for HTML5 Web browsers).
-- [Wikipedia.](https://en.wikipedia.org/wiki/Unreal_Engine)
-
------------
-
-### Demo
-- [Unreal Engine Sizzle Reel 2017 - GDC](https://www.youtube.com/watch?v=Vztn6HPL_Z4) 
-- [2018. Brace Yourself. Unreal Engine 4 Graphics Insanity Games Are Finally Coming!](https://www.youtube.com/watch?v=kLMgZWRk4zk)  
-- [Unreal Engine Simulation, Visualization & Training - I/ITSEC 2015](https://www.youtube.com/watch?v=tdCOyNyrdqc)  
-- [NASA: Building the ISS in Unreal Engine](https://www.youtube.com/watch?v=WuyHqsjv-EY): The International Space Station is a unique place – a convergence of science, technology and human innovation that demonstrates new technologies and makes research breakthroughs not possible on Earth - [Nasa](https://www.nasa.gov/mission_pages/station/main/onthestation/facts_and_figures.html)   
-- [VR Editor - GDC 2016](https://www.youtube.com/watch?v=1VVr2vMVdjc): Epic's Mike Fricker and Nick Donaldson show the VR Editor, the full Unreal Editor running in VR mode, using Oculus Touch controls. The VR Editor is available now with Oculus and Vive support.  
-- [Procedural Nature Pack (UE4)](https://www.youtube.com/watch?v=gut5ermayK4)  
-- [GDC 2016 State of Unreal: Hellblade Live Performance & Real-Time Animation, Unreal Engine 4](https://www.youtube.com/watch?v=JbQSpfWUs4I)  
+![root](img/maya/kinematic/root.png)
 
 
------------------
-## Import modeling & animation assets from Maya
+# Kinematics
+***Kinematics*** is the study of the motion of objects. This is related to, but distinguished from, dynamics in that kinematics studies only the way in which objects move and not the cause of the objects’ motion. In 3D computer graphics, the term kinematics describes how joints can be moved to animate objects and characters. There are two main types of kinematics: ***forward kinematics*** and ***inverse kinematics***.
 
-![unreal01](img/lab/unreal.png) 
-![unreal02](img/lab/unreal01.png) 
+## FK & IK
 
-## File format to use: OBJ or FBX
-### Obj
-OBJ has it’s origins with Alias Wavefront, a simple data-format that represents 3D geometry — namely, the position of each vertex, the UV position of each texture coordinate vertex, vertex normals, and the faces that make each polygon defined as a list of vertices, and texture vertices. 
+The term forward kinematics (FK) refers to a situation in which each joint in the chain inherits the motion of its parent joint. Thus, if you have four joints in a chain, when you rotate the root, the three child joints move based on the rotation of the root. When you rotate the second joint, the third and fourth joints inherit the motion of the second.
 
-- [Comparison I between OBJ & FBX](http://aecobjects.com/2014/10/which_format_is_better/)
-- [Comparison II between OBJ & FBX](http://www.reallusion.com/iclone/help/3DXchange5/Pipeline/05_Export/The_Comparison_of_OBJ_FBX.htm)
+Inverse kinematics (IK) cause the joints in a chain to orient themselves based on the position of a goal known as the end effector. 
 
-### FBX
+Inverse kinematics can be a more intuitive technique than forward kinematics in many situations. When used on legs, the Sticky option for inverse kinematics can prevent joints from penetrating the floor or sliding during a walk cycle. 
 
-FBX is a file format owned and developed by Autodesk. It is used to provide interoperability between digital content creation applications such as Autodesk MotionBuilder, Autodesk Maya, and Autodesk 3ds Max. Autodesk MotionBuilder software supports FBX natively, while Autodesk Maya and Autodesk 3ds Max software include FBX plug-ins.
+## Inverse kinematics
+With inverse kinematics (IK), you move an ***IK handle*** to pose an entire joint chain. An IK handle is an object you can select and move that affects the joints it is assigned to. A joint chain that has an IK handle is called an ***IK chain***. When you pose and animate a joint chain with an IK handle, the IK solver automatically rotates all the joints in the IK chain. The ***IK solver*** is what Maya uses to calculate the rotations of all the joints in the IK chain when you position the IK handle. 
 
-Unreal Engine features an FBX import pipeline which allows simple transfer of content from any number of digital content creation applications that support the format.
+- [Inverse Kinematics in Maya](https://www.youtube.com/watch?v=u6ZCoiMTCSI)
 
-The advantages of the Unreal FBX Importer over other importing methods are:
+# Skinning
 
-- Static Mesh, Skeletal Mesh, animation, and morph targets in a single file format.
-- Multiple assets/content can be contained in a single file.
-- Import of multiple LODs and Morphs/Blendshapes in one import operation.
-- Materials and textures imported with and applied to meshes.
+Skinning (Binding) is the process of attaching a mesh to a skeleton. It is probably the most common type of mesh deformation with the use of joints, since it offers the most amount of flexibility. The setup is more time-consuming and complex than other methods, but the end results will be as detailed as you like to make them.
 
-- [FBX Content Pipeline in Unreal Engine 4](https://docs.unrealengine.com/latest/INT/Engine/Content/FBX/index.html)  
+## Direct or indirect skinning
 
-## When you made assets in Maya
-- If it is static, you can save it as obj and import to the content browser in Unreal. 
-You need to import textures and build the material in the material editor in Unreal. Your object should have UV texture coordinate assigned.  
+- **Direct skinning**: the mesh is bound directly to the joint. The vertices of the mesh get weighted by the joints around them.   
+- **Indirect skinning**: a deformer such as a lattice or a wrap deformer gets bound to the joint, and in turn they affect the underlying mesh.
 
-- If it has rigs and animation, save it as fbx. You still need to import textures separately and your objects should have UV texture coordinate too. 
+## Three types of (direct) skinning 
 
-## FBX exporter in Maya
+- **Rigid binding:** this allows a vertex to only have one joint influence it.
+It is an old method of skinning, still good for mechanical objects, and computes extremely efficiently.  
+- **Smooth binding:** this allows a vertex to have multiple joints influence it. You can paint smooth weights to fine tune the vertex/joint assignments. This “painting weights” is usually what is referred to when someone says they are “skinning.”  
+- **Interactive skin binding (an extension of smooth binding):** The workflow for this is to do an interactive skin bind first. This method also allows you to paint weights for finer tuning after completing first rough adjustments with the interactive tool.
 
-- You can export as fbx directly. 
-- Or you can use the game exporter as below, under File menu:
+When testing skinning, sometimes you may notice that you don’t have enough places for your mesh to deform. If this is the case, you’ll need to insert some additional geometry (perhaps through something like the Insert Edge Loop Tool, or increasing subdivisions.)
 
-![exporter](img/lab/exporter.png) 
+![rg](img/maya/skinning/rigid.png)   
+Bind Skin: rigid binding emulation. Max influences: 1, Second joint rotate Z: 45. 
 
-- In the Unreal UI, you will see this window to import FBX. Check some parameters:
+![sm](img/maya/skinning/smooth.png)
+Bind Skin: smooth binding emulation. Max influences: 5, second joint rotate Z: 45. 
+It also shows you the local joint orientations. How to see in the edit mode: select joints and push two buttons shown from the above figure. 
 
-![importer](img/lab/importer.png) 
+## Joint orientation
+One of the most important aspects of setting joints in Maya is to understand the concept of joint orientation. When an object is created in Maya, by default its pivot point is aligned to the World axis. Joints, on the other hand, have the ability to have their pivots created based on user input through the *Orientation Settings* and by *drawing the subsequent joints in the chain*. 
 
-_________________
+To see the joint orientations in the object mode:
 
-## ART (Maya Animation Rigging Toolset) 
+1. Click on the root joint in the chain.  
+2. Then select Select > Hierarchy. Once all the joints are selected, select Display > Transform Display > Local Rotation Axes. This will display the actual orientations of the axes on the selected joints. 
 
-![unreal](img/lab/CharacterSetupImage.jpg)
-Image from [Unreal Engine 4 Maya Animation Rigging Toolset](https://docs.unrealengine.com/latest/INT/Engine/Content/Tools/MayaRiggingTool/index.html)  
+How to change the local axis:
 
-The Animation and Riggings Toolset (ART) is a comprehensive toolset that takes a character through skeleton creation, skeleton placement, and rig creation, as well as many animation tools to speed up your animators' workflow, currently tested and confirmed in Maya 2013 and up. Features include:
+- You can use Skeleton > [Orient Joint](http://help.autodesk.com/view/MAYAUL/2016/ENU//index.html?guid=GUID-29DF5D0F-1BDE-4464-850C-45769B3CF1CA).  
+- Change it manually: make the local axes visible in the edit mode by selecting joints and push the component button and '?' button together in the status line. With the rotation tool, you can rotate to change the local axis. However, often it is not recommended. Check the below tutorial.
 
-- Intuitive user interfaces guide the user through every process.
-- Complete skeletal creation.
-- Custom skeleton placement via an intuitive positioning rig.
-- An entire rig can be published and sent to the animation team in under a minute!
-- Ability to provide simple skinning to your final character.
-- A full suite of animation tools complete with user interface, including importing mocap or animation data, exporting to FBX, pose tools, mirroring, space switching, and more!
+### Reference
+- [ABOUT MAYA JOINT ORIENT by Rigging Dojo](http://www.riggingdojo.com/2014/10/03/everything-thought-knew-maya-joint-orient-wrong/)
 
-The ART is split into two modes: [Rigging](https://docs.unrealengine.com/latest/INT/Engine/Content/Tools/MayaRiggingTool/RigTool_Rigging/index.html) and [Animation](https://docs.unrealengine.com/latest/INT/Engine/Content/Tools/MayaRiggingTool/index.html), each with their own distinct interfaces. For a character to use the ART Animation interface, it must be produced from the Rigging interface.
+# Controlling skin weights
+## Painting weights
+***Painting weights*** is the process of using a brush to paint values of color on the surface of the model to distinguish which areas are affected by the joints in the skeleton. Carefully painting smooth values in turn gives us smooth deformation in our model. 
 
-*Caution: The ART is tested in Maya 2012-14 in the Window system. If you try other than these set-ups, you need to research and go through trials & errors (and may need to wait for the updates).*
+>Painting skin weights is a journey. When it’s working right, effective skin weights are magic as suddenly the character feels alive. But it takes a while to get them right. Even when you think they are right, once the character starts to animate, new problems will appear that weren’t obvious in the painting process.. A sloppy skin weight will forever affect the look of the animations you make with this rig. Getting it right is important. 
+- from Getting Started in 3D with Maya by Adam Watkins, Focal Press, 2012
 
-To download the latest ART set:
-- [Maya_AnimationRiggingTools](https://www.dropbox.com/sh/e49zvu9btm55o3t/Ietd28dXEJ):
-This is mainly developed my Jeremy Ernst, a lead technical animator from Epic Games. You can find the ART sources as well as tutorial videos.
+![paint](img/maya/skinning/paint.png)   
 
-#  WebVR / WebAR and glTF
-## WebAR
-- [Creating Augmented Reality with AR.js and A-Frame](https://aframe.io/blog/arjs/) by Jerome Etienne.
+### Maya help
+- [Common Artisan Brush Tool Settings](https://knowledge.autodesk.com/support/maya/learn-explore/caas/CloudHelp/cloudhelp/2015/ENU/Maya/files/GUID-67B8F095-4A0E-4BAE-938C-CB41B3EBD533-htm.html)  
 
-![ar](https://user-images.githubusercontent.com/6317076/27866704-452eaed6-618f-11e7-9cdd-2deaef865e3e.png) 
+## Component editor
 
-- [WebVR for Augmented Reality](https://medium.com/arjs/webvr-for-augmented-reality-f1e69a505902)  
+The most common way of editing the rigid weights (each mesh point is influenced by only one joint (in the Bind skin option, the max influence should bet set to 1.) is through the use of the Component Editor (Window > General Editors > Component Editor).
 
-## WebVR
-- [WebVR](https://webvr.info/) is an open specification that makes it possible to experience VR in your browser. The goal is to make it easier for everyone to get into VR experiences, no matter what device you have.
+![lego](img/maya/skinning/lego.png)   
 
-## glTF
-		
-- [glTF](https://www.khronos.org/gltf/): efficient runtime 3D asset delivery. Portable 3D graphics transmission Format.    
-glTF™ (GL Transmission Format) is a royalty-free specification for the efficient transmission and loading of 3D scenes and models by applications. glTF minimizes both the size of 3D assets, and the runtime processing needed to unpack and use those assets. glTF defines an extensible, common publishing format for 3D content tools and services that streamlines authoring workflows and enables interoperable use of content across the industry.  
-	- Compact to transmit.  
-	- Fast to load.  
-	- Describes full scenes.   
-	- Runtime neutral.  
-	- Open and extensible.  
-	
-![production](img/glTF.png)	
-	
-- [Physically-Based Rendering: From Theory to glTF](https://github.com/moneimne/glTF-Tutorials/tree/master/PBR)  
+_____________________
+# Rigging and character set-up
+The character’s mechanics must be convincing to an audience and the skin and clothing
+must also move and bend properly. Maya includes a number of tools that help you
+manage the parts that make up a typical character. This process of preparing character
+controls is called ***rigging*** and is used to let the animator focus on the process of animating.
+A fully rigged character can be quite complex as it brings together skeleton joints, surfaces,
+deformers, expressions, Set Driven Key, constraints, IK, BlendShapes, etc.
 
-- [slide: glTF 2.0 Launch
-Web3D Conference, June 2017](https://www.khronos.org/assets/uploads/developers/library/2017-web3d/glTF-2.0-Launch_Jun17.pdf)  
+- [Example: Rigging Demo Reel by Hassan Bensmaine](http://www.cgmeetup.net/home/rigging-demo-reel-by-hassan-bensmaine/)  
+- [Tutorial: Basic Character Animation by Tales of Nalstone](https://www.youtube.com/watch?v=3tyQpoZsAJ4)   
 
-- [glTF Tutorial](https://github.com/KhronosGroup/glTF-Tutorials/blob/master/gltfTutorial/README.md)  
+### Control set-up
+![cs02](img/maya/kinematic/controll.png)
 
-	
-- Maya to glTF	
-	- [Maya2glTF converter](https://github.com/Ziriax/Maya2glTF)  
-	- [Exporting glTF 2.0 from Maya LT](https://www.donmccurdy.com/2017/06/27/exporting-gltf-2-0-from-maya-lt-2/)
+### Control set-up for a walking man
+![kinect](img/maya/kinematic/kinematic.png)
 
-- Blendergltf
-	- [Blendergltf](https://github.com/Kupoman/blendergltf) is an addon for Blender that adds the ability to export to the glTF format. This addon started its life as part of the Blender Real TimeEngine addon in order to provide a convenient way of streaming scene data to real time engines. As interest has grown in glTF, the glTF exporting code of the Blender Real Time Engine addon was moved into this repository to be used as both a Python module and a Blender addon.
+## HIK
+Human Inverse Kinematics (HIK) is used for full-body inverse kinematics. This system creates IK Handles that control an entire biped or quadruped skeleton rather than using multiple IK chains on individual limbs. 
+
+![hik01](img/maya/skinning/hik01.png)
+
+It is a powerful system capable of producing smooth animations quickly. In addition, the time it takes to set up a full-body IK skeleton is a fraction of the time needed to create your own rig. HIK is a plug-in, but it is loaded automatically by default.
+
+Perhaps the greatest strength of the HIK system is its ability to retarget animations from one character to another. Characters of different sizes and proportions can swap motions. 
+
+### Skeleton generator
+The HIK tools allow you to create a custom skeleton and rig or use the system’s Skeleton Generator. Bipedal or quadrupedal characters can be created, but all must be in a **T-pose** or **T-stance** looking toward **the positive z-axis**. The HIK system also requires a standard set of 15 bones. 
+
+![hik](img/maya/kinematic/comp_nodes_figure.png)
 
 
+### Character controls
 
-<!--
+![hik05](img/lab/hik05.png)	
 
-https://www.youtube.com/watch?v=FEVUtVAy-n0 
+The HIK system comes with a Character Controls panel that allows you to select the control handles of your character quickly and easily and to toggle among FK, IK, and full body IK. You can also click the encircled arrows to see exploded views of the hands and feet.
 
--->
+Within the Character Controls panel is a row of icons located above the Skeleton, Definition, and Controls tabs. The first two icons allow you to toggle the **visibility** of the FK handles and bones. The next icon toggles the visibility of the full body skeleton. By default, this is turned off. Go ahead and choose the Show/Hide Skeleton icon to display the full-body skeleton. Since it appears under the FK bones, click the Show/Hide FK icon to turn the FK bones off.
+
+The next three icons—Full Body, Body Part, and Selection—control the **functionality** of the control handles on the character. Starting in reverse order, the Selection icon allows you to move a handle without having the bones follow along. The next, Body Part, treats the bones connected to the selected handle as an ordinary IK system. Choose this icon, and select the left wrist handle. You can select the wrist handle through a viewport or from the humanoid image within the Character Controls panel. Use the Move tool to see how it affects the skeleton. Use Undo to return the skeleton to its default position. Now select the Full Body icon, and move the wrist handle again. Notice the difference.
+
+## Related reference
+
+- [Prepare an existing skeleton for HumanIK](http://help.autodesk.com/view/MAYAUL/2016/ENU/?guid=GUID-8D27BAFD-7785-4173-860E-515FEB2E9C98)  
+- [Create and define a HumanIK skeleton](http://help.autodesk.com/view/MAYAUL/2016/ENU/?guid=GUID-795BDC06-8A1D-4D58-B55D-FD88D9B5A022)   
+- [Free Maya rigs](http://www.cgmeetup.net/home/ultimate-rigs-maya-rigs-maya-character-rigs-free-maya-rigs/)  
+- [Rig a Fish in Maya](http://cgi.tutsplus.com/tutorials/rig-a-fish-in-maya--cms-20873)  
+- [Mery Rig – Free Maya Character Rig, Female Character rig](http://www.cgmeetup.net/home/mery-rig-free-maya-character-rig-female-character-rig/)  
+- [Basic Character Rigging](https://courses.cs.washington.edu/courses/cse460/05sp/links/Rigging/basic_character.html)
+
+----------------
+## Mixamo
+Mixamo develops and sells web-based services for 3D character animation. Mixamo's technologies use machine learning methods to automate the steps of the character animation process, including 3D modeling to rigging and 3D animation.
+
+This is where you can find automated, finished characters & animations:
+
+- [Mixamo](https://www.mixamo.com/)
+
+
 
 
 </div>
@@ -207,21 +227,22 @@ https://www.youtube.com/watch?v=FEVUtVAy-n0
 	
 	<div class="header">
 		<h2>LowPolyGameArt</h1>		
-		<a href="index.html">Class outline</a><br/>
-		<a href="https://docs.google.com/spreadsheets/d/1Ob78eq8feKOhmdlHK3AJx71cI1p53jYFvdmVWf0fhV0/edit?usp=sharing">Schedule/Attendance</a><br/>
+		<a href="https://docs.google.com/spreadsheets/d/1Vxsw5zuTVJNBiI2C5LmYeX_FaB9K12r2HxIJKMHLJKk/edit?usp=sharing">Attendance</a><br/>
 		<a href="https://jiharu.github.io/intm3d/week01.html">3D modeling & animation class note</a><br/>
-		<a href="https://www.lynda.com/SharedPlaylist/43c97ef889cb4691a6fbd64b4d04a23c?org=ocadu.ca">Linda.com related tuorial</a><br/><br/>
+		<a href="https://www.lynda.com/SharedPlaylist/43c97ef889cb4691a6fbd64b4d04a23c? org=ocad.ca">Linda.com related tuorial</a><br/><br/>
+					
 		<h3>Class schedule</h3>	
-				<a href="week01.html">Introduction</a><br/>
-				<a href="week02.html">Group matching</a><br/>
-				<a href="week03.html">Modeling I</a><br/>
-				<a href="week04.html">Modeling II</a><br/>
-				<a href="week05.html">UV texturing</a><br/>							
-				<a href="week06.html">Shading & Texturing</a><br/>  
-				<a href="week07.html">Game production</a><br/>
-				<a href="week08.html">3D sculpt & Motion capture</a><br/>	
+				<a href="index.html">Class outline</a><br/>
+				<a href="week01.html">1. Notgames/Indie games</a><br/>
+				<a href="week02.html">2. Concept art</a><br/>
+				<a href="week03.html">3. Finalizing Pre-production</a><br/>
+				<a href="week04.html">4. Modeling</a><br/>
+				<a href="week05.html">5. UV texturing</a><br/>							
+				<a href="week06.html">6. Baking textures</a><br/>  
+				<a href="week07.html">7. LOD & Rigging</a><br/>
+				<!--<a href="week08.html">3D sculpt & Motion capture</a><br/>	
 				<a href="week09.html">LOD & Kinematics</a><br/>
-				<a href="week10.html">Independent project & Game as art</a><br/><!--		
+				<a href="week10.html">Independent project & Game as art</a><br/>	
 				<a href="week11.html">11: Arnold: Physically Based Renderer</a><br/>
 				<a href="week12.html">12: Rendering</a><br/>-->
 	</div>
@@ -233,7 +254,7 @@ https://www.youtube.com/watch?v=FEVUtVAy-n0
 		</script>
 	</div>
 	
-	<div class="footer">H Ji, 2018</div>
+	<div class="footer">H Ji, 2019</div>
 	
 </div>
 </body>
