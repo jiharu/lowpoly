@@ -101,74 +101,6 @@ kinematics (IK) and some do not.
 - [MAYA CHARACTER TO UE4 EP5- WALK CYCLE ANIMATION by SacMakersDaniel](https://www.youtube.com/watch?v=_ZSDTp-l3pw) 
 - [MAYA CHARACTER TO UE4 EP7- IMPORTING CHARACTER AND ANIMATIONS by SacMakersDaniel](https://www.youtube.com/watch?v=5TBHJd6olo8&t=133s)    
 
-_______________________________________________
-## Physically Based Rendering
-
-Physically based techniques attempt to simulate reality by using principles of physics to model the interaction of light and matter. Rendered scenes are based on physically accurate lights, materials, and light transport (i.e., Global Illumination). 
-In physically based rendering, realism is usually the primary goal. There is less tweaking and fewer parameters to get the correct results. However the computational cost usually becomes a lot more expensive and we need to understand physical lighting phenomena.  
-
-- [Photorealistic Materials in Unity!, published on Mar 11, 2018 by Brackeys](https://www.youtube.com/watch?v=_LaVvGlkBDs)  
-
-## Physically Based Rendering in Arnold
-
-Arnold is **a physically based renderer**, but it also lets you break the rules and create materials and lights that do not obey the laws of physics if you wish.  
-
-Designing materials based on physical laws can tremendously simplify shading and lighting, even when we do not necessarily strive for realism or physical accuracy. **By understanding and applying a few principles** we can make images that are more believable, and create materials that behave more predictably in different lighting setups.
-
-### Arnold references
-- [Linda.com: Maya 2018 Essential Training](https://www.lynda.com/Maya-tutorials/Maya-2018-Essential-Training/604210-2.html?srchtrk=index%3a3%0alinktypeid%3a2%0aq%3aArnold+%2b+maya%0apage%3a1%0as%3arelevance%0asa%3atrue%0aproducttypeid%3a2)  
-
-	- 9: Create Materials  
-		- Work with Arnold materials
-		- Opacity and refraction in Arnold
-	- 12: Render in Arnold  
-
-- [Arnold for maya user guide 4](https://support.solidangle.com/display/AFMUG/Understanding+Physically+Based+Rendering+in+Arnold)  
-	- [Learning sceans](https://support.solidangle.com/display/AFMUG/Learning+Scenes)  
-	- [Light](https://support.solidangle.com/display/AFMUG/Lights)  
-	- [Material library](https://support.solidangle.com/display/A5AFMUG/Material+Library)  
-	
-![arnold](https://support.solidangle.com/download/attachments/40111562/image2017-4-6%2017-24-1.png?version=2&modificationDate=1496129452000&api=v2)  	
-
-This material library is meant as a beginners guide for the type of material effects that are possible when using the Standard Surface shader. Bear in mind that the values used here are not based on any physical, real world values and are meant only as a starting point for beginners to explore. It is embedded as presets for AiStandardSurface material.  
-
-The **Arnold Standard Surface** shader is a physically-based shader capable of producing many types of materials. It includes a diffuse layer, a specular layer with complex Fresnel for metals, specular transmission for glass, subsurface scattering for skin, thin scattering for water and ice, a secondary specular coat, and light emission.
-
-![arnold](https://support.solidangle.com//download/attachments/25363362/escher-table2.jpg?api=v2)
-
-## IBL: Image Based Lighting
-
-[Wikipedia: IBL](https://en.wikipedia.org/wiki/Image-based_lighting)
-
-Image-based lighting (IBL) is a 3D rendering technique which involves capturing an omnidirectional representation of real-world light information as an image, typically using a specialized camera. This image is then projected onto a dome or sphere analogously to environment mapping, and this is used to simulate the lighting for the objects in the scene. This allows highly detailed real-world lighting to be used to light a scene, instead of trying to accurately model illumination using an existing rendering technique.
-
-Image-based lighting often uses high dynamic range imaging for greater realism, though this is not universal.
-
-### HDRI: High Dynamic Range Image
-
-[Wikipedia: HDRI](https://en.wikipedia.org/wiki/High-dynamic-range_imaging)
-
-High-dynamic-range imaging (HDRI) is a high dynamic range (HDR) technique used in imaging and photography to reproduce a greater dynamic range of luminosity that is possible with standard digital imaging or photographic techniques. The aim is to present a similar range of luminance to that experienced through the human visual system. 
-
-### Comparison with traditional digital images
-Information stored in high-dynamic-range images typically corresponds to the physical values of luminance or radiance that can be observed in the real world. This is different from traditional digital images, which represent colors as they should appear on a monitor or a paper print. Therefore, HDR image formats are often called scene-referred, in contrast to traditional digital images, which are device-referred or output-referred. 
-
-HDR images often don't use fixed ranges per color channel—other than traditional images—to represent many more colors over a much wider dynamic range. For that purpose, they don't use integer values to represent the single color channels (e.g., 0-255 in an 8 bit per pixel interval for red, green and blue) but instead use a floating point representation. Common are 16-bit (half precision) or 32-bit floating point numbers to represent HDR pixels. 
-
-### Using Arnold SkyDome Light
-- To obtain HDRI   
-	- [sIBL Archive](http://www.hdrlabs.com/sibl/archive.html)  
-Licence: All sIBL-sets on this page, including the images within, are licensed under the Creative Commons Attribution-Noncommercial-Share Alike 3.0 License.
-Remember: always mention where you got them from.  
-
- - [A light probe image by Paul Debevec and Dan Lemmon](http://ict.debevec.org/~debevec/Probes/)  
-
- - [hdrihaven](https://hdrihaven.com/hdris/category/?c=all)  
-
-### Using Arnold Photometric Light
-- To obtain IES   
-	- [Visual Photometric Tool™](http://www.visual-3d.com/tools/photometricviewer/)
-
 
 </div>
 </div>
@@ -189,9 +121,9 @@ Remember: always mention where you got them from.
 				<a href="week05.html">5. UV texturing</a><br/>							
 				<a href="week06.html">6. Baking textures</a><br/>  
 				<a href="week07.html">7. LOD & Rigging</a><br/>
-				<a href="week08.html">8. Motion Capture & PBR</a><br/>	
-				<!--<a href="week09.html">LOD & Kinematics</a><br/>
-				<a href="week10.html">Independent project & Game as art</a><br/>	
+				<a href="week08.html">8. Motion Capture</a><br/>	
+				<a href="week09.html">9. PBR & Game texuring</a><br/>
+				<!--<a href="week10.html">Independent project & Game as art</a><br/>	
 				<a href="week11.html">11: Arnold: Physically Based Renderer</a><br/>
 				<a href="week12.html">12: Rendering</a>--><br/>
 	</div>
