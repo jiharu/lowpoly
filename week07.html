@@ -21,32 +21,6 @@ A guide to markdown syntax is at http://daringfireball.net/projects/markdown/
 <div style="display: none" id="sourcetext">
 
 # Week 7
-
-## Level of Detail
-Level of Detail (LOD) is an effective optimization technique. It is to use a coarser-level geometric representation of an object in the far distance, that has a similar appearance to the high-level representation used in close distance, but requires less data to be processed by the CPU and GPU to save computational resources.  
-
-## LOD category
-### Sprites or Billboards
-2D representations of 3D objects that are used to reduce the complexity of the object. e.g., trees are drawn as a pair of rectangles with alpha-blended textures. A grandstand in an automobile race. The audience is typically drawn as rows of rectangular billboards that try to face the camera, but are constrained to rotate about the vertical axis. 
-### Discrete LOD
-Creating multiple representations of the same object. Selection of which representation is drawn is based on the distance of the LOD centre to the eye point (camera position).
-
-### Continous LOD
-An attempt to automate the generation of different-resolution representations of an object. For triangle meshes, the generation amounts to removing a few triangles at a time while trying to preserve the shape of the object. 
-### Infinite LOD 
-Generating an arbitrary number of triangles in a mesh that represents a smooth object. Given a surface representation of the object, a subdivision method is applied to tessellate the surface at run time.   
-  
-## LOD application
-You can model several versions of your mesh at different resolutions, and have the application engine switch between them automatically (from high level of detail to low level of detail) based on how near the camera is to the mesh. The high-detail version is shown when the camera is nearest to the model, and progressively lower-detail versions are rendered as the camera moves further away.  
-
-Commonly, three versions are imported for each model: high-res, mid-res, and low-res. 
-You can use the LOD Group component to set up LOD rendering for an object. For objects that are closer to the player, high LODs objects are rendered. Objects with higher LODs have a higher number of polygons. For objects that are far away from the player, a simpler version of the object is rendered instead in order to reduce the load on the hardware and to improve general rendering performance.
-
-Also, artists can create different LOD versions of the 3D object using automated LOD algorithms, deployed through software or manually reducing the number of vertices, normals, edges in the 3D Models, to create a lower polygon count model. When creating models of different LODs, note that it is better to create the most detailed model with the most number of polygons first and then reduce the number accordingly to create the other LOD versions. It is much harder to work the models the other way around. Do remember to keep the UV coherent when working with objects with different LODs. 
-
-## Unity manual: LOD
-- [https://docs.unity3d.com/Manual/LevelOfDetail.html](https://docs.unity3d.com/Manual/LevelOfDetail.html)  
-
 ___________
 
 # Joint system

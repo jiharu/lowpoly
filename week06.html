@@ -22,40 +22,45 @@ A guide to markdown syntax is at http://daringfireball.net/projects/markdown/
 
 # Week 6
 
-- Texture baking, sculpting & LOD.    
-- Lecture: Introducing Texture baking in Turtle, LOD pipeline using Sculptris.     
-- Making: Texture baking, 3D sculpting in LOD pipeline.    
+- Sculpting & LOD.    
+- Lecture: LOD pipeline using Sculptris.     
+- Making: 3D sculpting in LOD pipeline.    
 - Hands on studio: team discussion & making.  
 - Assignment: Continuously work on your process report. Review & installing Unity.  
 
 _____________________________________
+# LODs: Cinematic vs game model
+LOD is the acronym for level of detail. Models built for interactive 3D are primarily polygonal models that use controlled polygon counts to suit gaming engines. Some next-generation game engines already have support for Bezier geometry, and NURBS and Subdivision surfaces may soon follow. 
 
->Texture baking is the process of transferring details from one model to another.
+![lod](img/lod.png)  
+Cinematic model and game model. Image from the book Rigging for Games by Eyal Assaf.
 
->The baking tool starts a certain distance out from the model (usually a low-resolution model for game use), and casts rays inwards towards another model (usually a high-resolution sculpt). When a ray intersects the 2nd model, it records the surface detail and saves that into a texture map, using the first model's Texture Coordinates.
+## Level of Detail
+Level of Detail (LOD) is an effective optimization technique. It is to use a coarser-level geometric representation of an object in the far distance, that has a similar appearance to the high-level representation used in close distance, but requires less data to be processed by the CPU and GPU to save computational resources.  
 
->Baking tools support multiple map types. High-resolution normals go into a Normal map, occlusion goes into an Ambient occlusion map, etc.
+## LOD category
+### Sprites or Billboards
+2D representations of 3D objects that are used to reduce the complexity of the object. e.g., trees are drawn as a pair of rectangles with alpha-blended textures. A grandstand in an automobile race. The audience is typically drawn as rows of rectangular billboards that try to face the camera, but are constrained to rotate about the vertical axis. 
+### Discrete LOD
+Creating multiple representations of the same object. Selection of which representation is drawn is based on the distance of the LOD centre to the eye point (camera position).
 
->from [Texture Baking from http://wiki.polycount.com/wiki/Texture_Baking](http://wiki.polycount.com/wiki/Texture_Baking)  
+### Continous LOD
+An attempt to automate the generation of different-resolution representations of an object. For triangle meshes, the generation amounts to removing a few triangles at a time while trying to preserve the shape of the object. 
+### Infinite LOD 
+Generating an arbitrary number of triangles in a mesh that represents a smooth object. Given a surface representation of the object, a subdivision method is applied to tessellate the surface at run time.   
+  
+## LOD application
+You can model several versions of your mesh at different resolutions, and have the application engine switch between them automatically (from high level of detail to low level of detail) based on how near the camera is to the mesh. The high-detail version is shown when the camera is nearest to the model, and progressively lower-detail versions are rendered as the camera moves further away.  
 
+Commonly, three versions are imported for each model: high-res, mid-res, and low-res. 
+You can use the LOD Group component to set up LOD rendering for an object. For objects that are closer to the player, high LODs objects are rendered. Objects with higher LODs have a higher number of polygons. For objects that are far away from the player, a simpler version of the object is rendered instead in order to reduce the load on the hardware and to improve general rendering performance.
 
-Bake textures with Turtle
+Also, artists can create different LOD versions of the 3D object using automated LOD algorithms, deployed through software or manually reducing the number of vertices, normals, edges in the 3D Models, to create a lower polygon count model. When creating models of different LODs, note that it is better to create the most detailed model with the most number of polygons first and then reduce the number accordingly to create the other LOD versions. It is much harder to work the models the other way around. Do remember to keep the UV coherent when working with objects with different LODs. 
 
-- [Bake textures with Turtle](https://knowledge.autodesk.com/support/maya-lt/learn-explore/caas/CloudHelp/cloudhelp/2018/ENU/MayaLT-TextureBaking/files/GUID-6DD4CE1F-7693-4894-BE82-7685BDD1F557-htm.html)
+## Unity manual: LOD
+- [https://docs.unity3d.com/Manual/LevelOfDetail.html](https://docs.unity3d.com/Manual/LevelOfDetail.html)  
 
-![Autodesk](http://damassets.autodesk.net/content/dam/autodesk/www/products/autodesk-maya-lt/responsive-center/images/improved-turtle-baking-tools-large-1152x648.jpg)   
-Image address from https://www.autodesk.eu/products/maya-lt/features/lighting-materials-and-texture-baking/improved-turtle-baking-tools
-
-## Video tutorial
-- [How to Bake Textures ready for Games in Blender  0
-BY PIETRO CHIOVARO ON NOVEMBER 12, 2018](https://www.blendernation.com/2018/11/12/how-to-bake-textures-ready-for-games-in-blender/)  
-
-- [Texture Baking](https://3dtotal.com/tutorials/t/texture-baking-richard-tilbury-max-photoshop#article-introduction)  
-- [Maya LT for Unity Developers: Texture Baking with Turtle](https://knowledge.autodesk.com/support/maya-lt/learn-explore/caas/video/youtube/watch-v-EoS5QyaRZYk.html)   
-www.autodesk.com/mayalt In this series Wes McDermott goes through various aspects of using Maya LT to create assets for games using Unity. Find Wes on Twitter, @the3dninja. In this video, Wes gives an introduction to using the Turtle Texture Baking technology built into Maya LT, in consequence of using Unity. Wes shows a common workflow for baking low resolution textures from a higher resolution source surface, using the Turtle baking features built into Maya LT.
-
-## Advanced Baking - Baking Next-Gen lighting with Turtle
-- [Tutorial](https://3dtotal.com/tutorials/t/advanced-baking-next-gen-lighting-with-turtle-illuminate-labs-maya#article-lets-start)
+_____________________
 
 # 3D sculpt
 

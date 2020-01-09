@@ -61,17 +61,7 @@ Pinterest
 ![je](https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/ea614128605433.55c911ab4e624.png)
 by Jeremy Edelblut (Jeremyedelblut.com) 
  
-
-## Game asset tutorial
-- [Minions Art is creating Game Art Tips and Astro Kat, a Catventure game! in Patreon](https://www.patreon.com/minionsart)  
-
-## LODs: Cinematic vs game model
-LOD is the acronym for level of detail. Models built for interactive 3D are primarily polygonal models that use controlled polygon counts to suit gaming engines. Some next-generation game engines already have support for Bezier geometry, and NURBS and Subdivision surfaces may soon follow. 
-
-![lod](img/lod.png)  
-Cinematic model and game model. Image from the book Rigging for Games by Eyal Assaf.
-
-# Invalid polygon geometry
+# Examining invalid polygon geometry
 Some types of polygon geometry will not work in Maya. Invalid geometry includes vertices that are not associated with a polygon edge and polygon edges that are not part of a face (dangling edges). 
 
 ## Solution
@@ -118,71 +108,28 @@ To clean up polygon meshes
 - [Maya help docu](http://help.autodesk.com/view/MAYAUL/2018/ENU/?guid=GUID-D4CD168A-34F2-465B-A39C-DE20B34E5535)  
 ![maya](http://help.autodesk.com/cloudhelp/2018/ENU/Maya-Modeling/images/GUID-17DA21F5-4502-489B-90DA-CA1949B919AE.png)  	
 
-_________________
+## Game asset tutorial
+- [Minions Art is creating Game Art Tips and Astro Kat, a Catventure game! in Patreon](https://www.patreon.com/minionsart)  
 
-# Import modeling & animation assets from Maya
-## File format to use: OBJ or FBX
-### Obj
-OBJ has it’s origins with Alias Wavefront, a simple data-format that represents 3D geometry — namely, the position of each vertex, the UV position of each texture coordinate vertex, vertex normals, and the faces that make each polygon defined as a list of vertices, and texture vertices. 
+## Maya based low poly tips
 
-- [Comparison I between OBJ & FBX](http://aecobjects.com/2014/10/which_format_is_better/)
-- [Comparison II between OBJ & FBX](http://www.reallusion.com/iclone/help/3DXchange5/Pipeline/05_Export/The_Comparison_of_OBJ_FBX.htm)
+![lowpoly](img/lowpolytest01.png)   
+by H.Ji. 
 
-### FBX
+	You can find test models from Windows/General Editors/Content Browser/
 
-FBX is a file format owned and developed by Autodesk. It is used to provide interoperability between digital content creation applications such as Autodesk MotionBuilder, Autodesk Maya, and Autodesk 3ds Max. Autodesk MotionBuilder software supports FBX natively, while Autodesk Maya and Autodesk 3ds Max software include FBX plug-ins.
+- Harden edge - Interpolation of vertex normals to make hard edges: ***Mesh Display/Harden Edge***  
+- Polygon reduction also known as mesh decimation): ***Mesh/Reduce***    
+	- [Maya help - reduce](http://help.autodesk.com/view/MAYAUL/2018/ENU//index.html?guid=GUID-49F4731D-4F59-4B98-9751-F0E1CAA675CD)  
+- Checking Polygon component numbers - turn on ***Display/Heads Up Display/Poly Count***  
+	- [Maya help - poly count ](http://help.autodesk.com/view/MAYAUL/2018/ENU//index.html?guid=GUID-53E46D0C-4B7B-4404-AEB0-3BDD1FF8608A)	
+	- **Poly count:** displays polygon statistics for the visible objects displayed in the view panel, including Vertices, Edges, Faces, Triangles, and UVs. This feature is useful for game development. The first column on the left lists the total components of all the polygons in the scene. The second column lists the total components of the selected polygon(s). The third column lists the total selected components. The default is off.    	
+- **PBR** renderer: physically based render in Maya is Arnold.
+	- [Arnold rendering](https://jiharu.github.io/intm3d/week12.html) - aiSkyDomeLight applying when you want to use **HDRI**. 
 
-Unreal Engine features an FBX import pipeline which allows simple transfer of content from any number of digital content creation applications that support the format.
-
-The advantages of the Unreal FBX Importer over other importing methods are:
-
-- Static Mesh, Skeletal Mesh, animation, and morph targets in a single file format.
-- Multiple assets/content can be contained in a single file.
-- Import of multiple LODs and Morphs/Blendshapes in one import operation.
-- Materials and textures imported with and applied to meshes.  
-- [FBX Content Pipeline in Unreal Engine 4](https://docs.unrealengine.com/latest/INT/Engine/Content/FBX/index.html)  
-
-#  WebVR / WebAR and glTF
-## WebAR
-- [Creating Augmented Reality with AR.js and A-Frame](https://aframe.io/blog/arjs/) by Jerome Etienne.
-
-![ar](https://user-images.githubusercontent.com/6317076/27866704-452eaed6-618f-11e7-9cdd-2deaef865e3e.png) 
-
-- [WebVR for Augmented Reality from Medium.com](https://medium.com/arjs/webvr-for-augmented-reality-f1e69a505902)  
-
-- [WebVR Codepen example](https://codepen.io/Hrrr/pen/QmvEoj) 
-
-## WebVR
-- [WebVR](https://webvr.info/) is an open specification that makes it possible to experience VR in your browser. The goal is to make it easier for everyone to get into VR experiences, no matter what device you have.
-
-## glTF
-		
-- [glTF](https://www.khronos.org/gltf/): efficient runtime 3D asset delivery. Portable 3D graphics transmission Format.    
-glTF™ (GL Transmission Format) is a royalty-free specification for the efficient transmission and loading of 3D scenes and models by applications. glTF minimizes both the size of 3D assets, and the runtime processing needed to unpack and use those assets. glTF defines an extensible, common publishing format for 3D content tools and services that streamlines authoring workflows and enables interoperable use of content across the industry.  
-	- Compact to transmit.  
-	- Fast to load.  
-	- Describes full scenes.   
-	- Runtime neutral.  
-	- Open and extensible.  
+![lowpoly](https://i.pinimg.com/564x/9e/6e/28/9e6e2873fbcfc031ba509761693a4402.jpg) 
 	
-![production](img/glTF.png)	
-	
-- [Physically-Based Rendering: From Theory to glTF](https://github.com/moneimne/glTF-Tutorials/tree/master/PBR)  
-
-- [slide: glTF 2.0 Launch
-Web3D Conference, June 2017](https://www.khronos.org/assets/uploads/developers/library/2017-web3d/glTF-2.0-Launch_Jun17.pdf)  
-
-- [glTF Tutorial](https://github.com/KhronosGroup/glTF-Tutorials/blob/master/gltfTutorial/README.md) 
-
-- [WHY WE SHOULD ALL SUPPORT GLTF 2.0 AS THE STANDARD ASSET EXCHANGE FORMAT FOR GAME ENGINES By: Juan Linietsky Aug 03, 2017](https://godotengine.org/article/we-should-all-use-gltf-20-export-3d-assets-game-engines)   
-
-	
-- Maya to glTF	
-	- [Maya2glTF converter](https://github.com/Ziriax/Maya2glTF)  
-	- [Exporting glTF 2.0 from Maya LT](https://www.donmccurdy.com/2017/06/27/exporting-gltf-2-0-from-maya-lt-2/)
-
-- Blendergltf
-	- [Blendergltf](https://github.com/Kupoman/blendergltf) is an addon for Blender that adds the ability to export to the glTF format. This addon started its life as part of the Blender Real TimeEngine addon in order to provide a convenient way of streaming scene data to real time engines. As interest has grown in glTF, the glTF exporting code of the Blender Real Time Engine addon was moved into this repository to be used as both a Python module and a Blender addon.
+- Above image: using **ambient occlusion** and adding **bevel** edges.	
 
 __________
 # Modeling tutorials
