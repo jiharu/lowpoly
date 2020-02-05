@@ -23,15 +23,135 @@ A guide to markdown syntax is at http://daringfireball.net/projects/markdown/
 
 # Week 5
 
-- Lecture: Introducing UV texturing and TURTLE renderer.    
+- Lecture: Introducing UV texturing and texturing pipeline.
+- Presentations: team based progress report. 
 - Tutorial: UV unwrapping.     
-- Making: Polygon modeling and texturing.   
+- Making: Shading, texturing, and UV unwrapping.   
+- Advanced topic: PBR
 - Hands on studio: team discussion & making.  
 - Assignment: Continuously work on your process report.
 
 _____________________________________
 
-## UV texturing
+# Pipeline: export & import assets to game engines
+
+## Maya to Game Engine
+
+### References
+- [Maya 2018 online Help](http://help.autodesk.com/view/MAYAUL/2018/ENU//)  
+- [Unreal Engine 4 Documentation](https://docs.unrealengine.com/latest/INT/)  
+- [Unity Manual: Importing Objects](https://docs.unity3d.com/Manual/ImportingModelFiles.html)  
+- [Unity Manual: Supported Model file formats](https://docs.unity3d.com/Manual/3D-formats.html)  
+- Art of Maya [pdf link](http://web.cse.ohio-state.edu/~parent/classes/682/MAYA/art_of_maya.pdf): P. 81~85: Interactive 3D.  
+- Book: Rigging for Games by Eyal Assaf, 2015: based on using Maya and Unity.
+
+## Unreal Engine
+
+Unreal Engine is the world’s most open and advanced real-time 3D creation platform. Continously evolving to serve not only its original purpose as a state-of-the-art games engine, today it gives creators across industries the freedom and control to deliver cutting-edge content, interactive experiences, and immersive virtual worlds. 
+- description by [Unreal Engine.](https://www.unrealengine.com/en-US/)  
+
+The Unreal Engine is a game engine developed by Epic Games, first showcased in the 1998 first-person shooter game Unreal. Although primarily developed for first-person shooters, it has been successfully used in a variety of other genres, including stealth, MMORPGs, and other RPGs. With its code written in C++, the Unreal Engine features a high degree of portability and is a tool used by many game developers today.
+
+The current release is Unreal Engine 4, designed for Microsoft's DirectX 11 and 12 (for Microsoft Windows, Xbox One, Windows RT); OpenGL (for OS X, Linux, PlayStation 4, iOS, Android, Ouya and Windows XP); and JavaScript/WebGL (for HTML5 Web browsers).
+- [Wikipedia.](https://en.wikipedia.org/wiki/Unreal_Engine)
+
+-----------
+
+### Demo
+- [Enterprise Summer Sizzle Reel 2019 | Unreal Engine](https://www.youtube.com/watch?v=iDqGtPHAecc&list=PLZlv_N0_O1gYfw89JtRX0bTb_YbxHOXwz) 
+- [NASA: Building the ISS in Unreal Engine](https://www.youtube.com/watch?v=WuyHqsjv-EY): The International Space Station is a unique place – a convergence of science, technology and human innovation that demonstrates new technologies and makes research breakthroughs not possible on Earth - [Nasa](https://www.nasa.gov/mission_pages/station/main/onthestation/facts_and_figures.html)   
+- [VR Editor - GDC 2016](https://www.youtube.com/watch?v=1VVr2vMVdjc): Epic's Mike Fricker and Nick Donaldson show the VR Editor, the full Unreal Editor running in VR mode, using Oculus Touch controls. The VR Editor is available now with Oculus and Vive support.  
+- [Procedural Nature Pack (UE4)](https://www.youtube.com/watch?v=gut5ermayK4)  
+- [GDC 2016 State of Unreal: Hellblade Live Performance & Real-Time Animation, Unreal Engine 4](https://www.youtube.com/watch?v=JbQSpfWUs4I)  
+
+__________________
+
+## Import modeling & animation assets from Maya
+
+![unreal01](img/lab/unreal.png) 
+![unreal02](img/lab/unreal01.png) 
+
+## File format to use: OBJ or FBX
+### Obj
+OBJ has it’s origins with Alias Wavefront, a simple data-format that represents 3D geometry — namely, the position of each vertex, the UV position of each texture coordinate vertex, vertex normals, and the faces that make each polygon defined as a list of vertices, and texture vertices. 
+
+- [Comparison I between OBJ & FBX](http://aecobjects.com/2014/10/which_format_is_better/)
+- [Comparison II between OBJ & FBX](http://www.reallusion.com/iclone/help/3DXchange5/Pipeline/05_Export/The_Comparison_of_OBJ_FBX.htm)
+
+### FBX
+
+FBX is a file format owned and developed by Autodesk. It is used to provide interoperability between digital content creation applications such as Autodesk MotionBuilder, Autodesk Maya, and Autodesk 3ds Max. Autodesk MotionBuilder software supports FBX natively, while Autodesk Maya and Autodesk 3ds Max software include FBX plug-ins.
+
+Unreal Engine features an FBX import pipeline which allows simple transfer of content from any number of digital content creation applications that support the format.
+
+The advantages of the Unreal FBX Importer over other importing methods are:
+
+- Static Mesh, Skeletal Mesh, animation, and morph targets in a single file format.
+- Multiple assets/content can be contained in a single file.
+- Import of multiple LODs and Morphs/Blendshapes in one import operation.
+- Materials and textures imported with and applied to meshes.
+
+- [FBX Content Pipeline in Unreal Engine 4](https://docs.unrealengine.com/latest/INT/Engine/Content/FBX/index.html)  
+
+## When you make assets in Maya
+- If it is static, you can save it as obj and import to the content browser in Unreal. 
+You need to import textures and build the material in the material editor in Unreal. Your object should have UV texture coordinate assigned.  
+
+- If it has rigs and animation, save it as fbx. You still need to import textures separately and your objects should have UV texture coordinate too. 
+
+## FBX exporter in Maya
+
+- You can export as fbx directly. 
+- Or you can use the game exporter as below, under File menu:
+
+![exporter](img/lab/exporter.png) 
+
+- In the Unreal UI, you will see this window to import FBX. Check some parameters:
+
+![importer](img/lab/importer.png) 
+
+__________________________
+
+
+____________________________________
+## Expanded topic: Substance Painter
+
+### What is Substance Painter?
+
+Substance Painter is a powerful 3D painting tool. 
+
+The main purpose of Substance Painter is to texture models. Its advanced masking and procedural texturing tools allow you to make textures that are much harder to achieve in purely 2D programs like Photoshop.
+
+Before you get into Substance Painter you first need a polygonal model that has been properly UV unwrapped. This 3D asset would be imported and used as the surface/object to paint on.
+
+### Download Substance Painter
+You can create an account to access to the application with a 1 year free student license. 
+
+- [Substance Painter webpage](https://www.substance3d.com/products/substance-painter/)  
+- [Substance education license](https://www.substance3d.com/education/)  
+
+### Where to start
+In the course below from Substance Academy, you can take a project based approach to learn Substance Painter.
+
+- [GETTING STARTED WITH SUBSTANCE PAINTER 2018](https://academy.substance3d.com/courses/getting-started-with-substance-painter-2018/youtube-IGGQl9kVB1M)  
+
+
+____________________________________
+## Advanced topic: PBR - physically based rendering
+### THE THEORY OF PHYSICALLY-BASED RENDERING AND SHADING
+from THE PBR GUIDE BY ALLEGORITHMIC.
+
+Light is a complex phenomenon as it can exhibit properties of both a wave and a particle. As a result, different models have been created to describe its behavior.
+
+As texture artists, we are interested in the ray model of light as it describes the interaction of light and matter. Understanding how light rays interact with surface matter is important because our job is to create textures that describe a surface. The textures and materials we author interact with light in our virtual worlds. The more we understand how light behaves, the better our textures will look.
+
+In this guide, we will discuss the theory behind the physics of physically based rendering (PBR) models. We will start by examining the behavior of light rays and work up to defining the key characteristics of PBR.
+
+- [THE PBR GUIDE BY ALLEGORITHMIC - PART 1](https://academy.substance3d.com/courses/the-pbr-guide-part-1): Click the link to read the guide.  
+
+___________________________________
+
+# UV texturing
 >UV stands for the horizontal (U) and vertical (V) coordinates of the 2D coordinate map space that is applied to a 3D object.
 
 UVs are 2D representations of a 3D object. There can be a problem with wrapping a 2D image (a texture) around a 3D object. UV mapping helps with this problem: UVs are directly related to vertices on a polygon and NURBS, but the UVs cannot be manipulated in 3D space; they are tied to a 2D coordinate plane and edited in a **UV editor**.
@@ -138,9 +258,8 @@ Rendered with TURTLE renderer.
 ![barrel](img/barrel01.png) 
 ![barrel](img/barrel02.png) 
 
-
 ____________________________
-## Lego texturing
+## Practice: Lego texturing
 You can download the lego OBJ file [here](obj/lego.obj) 
 	 
 ![uv01](img/maya/character/uv01.png) 
@@ -204,8 +323,17 @@ Turtle lets you:
 - Bake illumination into texture maps, vertex maps, or point clouds.
 - Bake occlusion and normal maps from detailed models to low-polygon models.
 
+______________________________
 
-____________________________________
+## Lego related reference
+- [Lego Man 3D Minifig Reference
+by Quandtum](http://quandtum.deviantart.com/art/Lego-Man-3D-Minifig-Reference-145171513) 
+- [Anatomy Of A Lego Minifig](http://wtf.thebizzare.com/offbeat/uncategorized/anatomy-of-a-lego-minifig/)  
+- [LEGO-Textures: Textures scanned from real LEGO bricks!](https://github.com/rioforce/LEGO-Textures)  
+- [CgTrader](https://www.cgtrader.com/3d-models/sport-hobby/toy/lego-man-collection-10-characters)  
+- [LEGO HEAD DECALS](http://fantasticpixcool.com/lego+head+decals)  
+- [Base Lego Model](https://3docean.net/item/base-lego-model/8762731)  
+- [Lego Minifig 3D Model](https://www.creativecrash.com/3d-model/lego-minifig-3d-model)  
 
 <!--## Optional: shading, lighting, and rendering
 - Let's work on the cinematography. Create lights and soft shadows. 
@@ -247,22 +375,10 @@ From the option box, you can create layers which can divide the subdiv surfaces 
 ![sd04](img/maya/character/sd04.png) 
 
 - ***Congratualtions! It's completed!***
-
-______________________________-->
-
-## Lego related reference
-- [Lego Man 3D Minifig Reference
-by Quandtum](http://quandtum.deviantart.com/art/Lego-Man-3D-Minifig-Reference-145171513) 
-- [Anatomy Of A Lego Minifig](http://wtf.thebizzare.com/offbeat/uncategorized/anatomy-of-a-lego-minifig/)  
-- [LEGO-Textures: Textures scanned from real LEGO bricks!](https://github.com/rioforce/LEGO-Textures)  
-- [CgTrader](https://www.cgtrader.com/3d-models/sport-hobby/toy/lego-man-collection-10-characters)  
-- [LEGO HEAD DECALS](http://fantasticpixcool.com/lego+head+decals)  
-- [Base Lego Model](https://3docean.net/item/base-lego-model/8762731)  
-- [Lego Minifig 3D Model](https://www.creativecrash.com/3d-model/lego-minifig-3d-model)  
-
+-->
 ___________________________________
 # Action items
-- Check out [Maya Texturing](https://jiharu.github.io/intm3d/week07.html) for more resources and description about UV texturing.  
+- Check out [Maya Texturing from 3D Modeling & Animation class note](https://jiharu.github.io/intm3d/week07.html) for more description about UV texturing.  
 
 - Check the [Lynda.com: Creating Game Environments in Maya and Photoshop with Adam Crespi](https://www.lynda.com/MyPlaylist/Watch/14973311/110453?autoplay=true) 
 
