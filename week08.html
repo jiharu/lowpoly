@@ -49,8 +49,6 @@ A guide to markdown syntax is at http://daringfireball.net/projects/markdown/
 		a system for dynamically animating ground based arthropods in real-time, capable of traversing realistically across a complex, arbitrary environment. The physical simulation of the virtual world further grounds the creatures, enabling complex emergent animations to form.
 		
 		- [Deepmotion: Procedural Animation for Characters via Scripting in C#](https://blog.deepmotion.com/2018/04/25/procedural-animation-for-character/)  
-			- [DeepMotion Reveals Breakthrough ‘Digital Cerebellum’ Animation Technology](http://www.gamasutra.com/view/pressreleases/323992/DeepMotion_Reveals_Breakthrough_Digital_Cerebellum_Animation_Technology.php)  
-			- [Unity asset: DeepMotion Avatar: The Rise of Physically Simulated Characters](https://forum.unity.com/threads/deepmotion-avatar-the-rise-of-physically-simulated-characters.504917/)
 		
 		![procedural](https://blog.deepmotion.com/content/images/2018/04/kick-830w.gif)  
 		
@@ -69,19 +67,20 @@ kinematics (IK) and some do not.
 
 ## MoCap data: data collecting or generating 
 - Download free motion capture data as .fbx
-
+<!-- 
 	- [mocapdata.com](http://mocapdata.com/)  
-	mocapdata.com provides 933 premium and 4671 free motion datasets and is advertised as 'the world biggest state of the art motion capture library on the earth.'
+	mocapdata.com provides 933 premium and 4671 free motion datasets and is advertised as 'the world biggest state of the art motion capture library on the earth.' -->
 	- [turbosquid.com](http://www.turbosquid.com/Search/Motion-Capture/free/fbx)  
 	 TurboSquid provides 3D assets including 3D models. You can find free 3D models as well as free motion capture FBX data that can be imported to Maya. 
 
 - Create a folder to save the downloaded fbx files.   
 
 ### In Maya
-- Open the Maya scene where your HIK character. 
+- **Quick Rig** (Skeleton/Quick Rig) to your biped modeling in Maya.
 - Import fbx data into the scene. Check the imported character from the outliner window, and play to check the animation.  
-- In the HIK window, your character should be in the Character box (e.g., Character1) and change the Source to the imported character. (e.g., Humanoid1)
+- In the HIK window, your rigged character should be in the Character box (e.g., QuickRigCharacter) and change the Source to the imported character. (e.g., Humanoid1)
 - Now you can see that your character behaves according to the imported MOCAP motion.
+- You can **bake** animation using the HIK command and export the animation clip with the model as FBX.
 
 ![mcap](img/lab/mcap.png) 
 
@@ -91,7 +90,7 @@ kinematics (IK) and some do not.
 - You can choose the mesh and skeletons and export them too. 
 
 ### In the Unreal Engine
-- Opne Epic Games Launcher and Launch Unreal Engine. You need to create your account in the Epic Games, if you don't have.
+- Open Epic Games Launcher and Launch Unreal Engine. You need to create your account in the Epic Games, if you don't have.
 - Create New Project. 
 - In the Content Browser, create one folder and import your fbx files to here.   
 
@@ -100,6 +99,9 @@ kinematics (IK) and some do not.
 - [ANIMATION FROM MAYA TO UE 4 10 HD by Manoanim APS](https://www.youtube.com/watch?v=zOZbghSJNpc)  
 - [MAYA CHARACTER TO UE4 EP5- WALK CYCLE ANIMATION by SacMakersDaniel](https://www.youtube.com/watch?v=_ZSDTp-l3pw) 
 - [MAYA CHARACTER TO UE4 EP7- IMPORTING CHARACTER AND ANIMATIONS by SacMakersDaniel](https://www.youtube.com/watch?v=5TBHJd6olo8&t=133s)    
+
+### How to add a third-person camera in Unity 3D
+- [Sharp Coder blog](https://sharpcoderblog.com/blog/third-person-camera-in-unity-3d)
 
 
 </div>
