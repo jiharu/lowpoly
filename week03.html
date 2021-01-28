@@ -23,30 +23,31 @@ A guide to markdown syntax is at http://daringfireball.net/projects/markdown/
 # Week 3
     
 - Pre-production
-- Discussion.    
-- Assignment: reading + your collective process report.
+- How to import & export assets
+- Assignment: reading + your final collective process report.
 
 ___________________________________	
-<!--
-# Review
-
-
-# Survey review
-![survey](img/survey01.png)  
-![survey](img/survey02.png)   
-![survey](img/survey03.png)  -->
-
 # Team formation 
 *"I prefer to work with people who are willing to merge ideas and be comfortable with peoples decisions. I'm willing to work with people who get the work done on time and constantly communicate with each other to help or suggest ideas. I don't mind the concept not being my suit as long as people are willing to work hard and motivate others to do the same."*
+by an anonymous student from a previous survey  
 
-# Pre-production
+# Survey review
+![survey](img/sv2021_01.png)  
+![survey](img/sv2021_02.png)   
+![survey](img/sv2021_03.png)  
+![survey](img/sv2021_04.png)  
+
+___________________________________
+
+## Pre-production
 It will work as a blueprint to detail and to construct your project.  
 
-- **Blocking out your scene / Greyboxing / Blockout**: start a rough sketch using 3D blocks. Use simple primitive shapes to define scale and layout of your world.   
-- Gathering and studying visual references.
 - Finalizing your concept art. 
+- Gathering and studying visual references.
+- Sketches of your world layout, characters/objecjts/landscape designs.
+	- **Blocking out your scene / Greyboxing / Blockout**: start a rough sketch using 3D blocks. Use simple primitive shapes to define scale and layout of your world.
 
-## What to consider in pre-production stage
+### What to consider in pre-production stage
 Reference: Gahan, Andrew, 3ds Max Modeling for Games: Volume II. Focal Press, 2012.
 
 - High quality pre-production preparation
@@ -57,22 +58,27 @@ Reference: Gahan, Andrew, 3ds Max Modeling for Games: Volume II. Focal Press, 20
 	- Ensure that you have enough time and resources to deliver it on time. Always ensure you know the deadline.  
 
 - Computational cost based on your delivery forms
-	- Determine **the polygon count** (triangles or quadrangles), **texture resolution specifications**, and **what types of textures** are required (Bump, Specular, Normal maps, etc).
+	- Determine the polygon count (triangles or quadrangles), texture resolution specifications, and what types of textures are required (Bump, Specular, Normal maps, etc).
 
-# Collective process report 
-- What to include:
-	- Title & a simple subject description.  
-	- Names of team members and their roles in the production. 
-		- Everyone needs to take at least one role as a lead of different parts in the production pipeline.  
-	- Genre & style, how to express.    
-	- Visual references & color palette. 
-	- Your world layout/blueprint/floorplan & list of objects to make. 
-	- Objects/characters/landscape design sketches (top, front, side views)  
-	- The chosen applications & techniques to use or to learn them.  
-	- A brief description of your team's strengths and weaknesses.  
+# Collective final pre-production 
+Check out: [1st deliverable](https://canvascloud.ocadu.ca/courses/1293/assignments/20428).  
+
+## What to include:  
 	
-- Each team will give a process report presentation for sharing ideas and feedback in class.  
-- As you progress, list challenges and share how you solved them. A simple tutorial style is encouraged.   	
+- Your team name (title) and member names.
+- Finalized genre, keywords, and description (one or two sentences).
+- **Pre-production**
+
+	- Visual research (references, character/background sketch)
+	- Sketches of your world layout/blue print/floor plan
+	- Objects/characters/landscape design sketches (top, front, side views)
+	- Color palette
+
+- Work schedule including each member's roles and their focused techniques.
+	- Roles, who will take the lead of which parts in the production pipeline (everyone needs to take at least one role).
+	- Expected technological focus in the work pipeline (modeling, shading, lighting, texturing, animation, visual effects, C# coding, and etc.) 
+- Your definition of what is game art (what & why).
+- A brief description of your team's strengths and weaknesses.
 	
 ## Inspiration
 
@@ -90,14 +96,92 @@ Reference: Gahan, Andrew, 3ds Max Modeling for Games: Volume II. Focal Press, 20
 [Timothy J. Reynolds](http://www.turnislefthome.com/33005/324719/work/low-poly-isometrics),
 [AWWWARDS](http://www.awwwards.com/low-poly-illustration-what-s-the-secret.html)   
 	- Apple iPhone 3d diorama animation video [Youtube](https://www.youtube.com/watch?v=Em2WhCa8cgE)  
-	- Paper City [Vimeo](https://vimeo.com/67658001)		
+	- Paper City [Vimeo](https://vimeo.com/67658001)
+	
+____________________
+# Asset management
+- Creation  
+- Wokrflow  
+- Folder indexing/naming  
+- File indexing/naming (name_date_initial of author)   
+- Version control
+- Access control (One drive, MS teams/Files)
+
+# Import & export assets
+## Widely used file formats for geometry: OBJ or FBX
+### Obj
+OBJ has it’s origins with Alias Wavefront, a simple data-format that represents 3D geometry — namely, the position of each vertex, the UV position of each texture coordinate vertex, vertex normals, and the faces that make each polygon defined as a list of vertices, and texture vertices. 
+
+- [Comparison I between OBJ & FBX](http://aecobjects.com/2014/10/which_format_is_better/)
+- [Comparison II between OBJ & FBX](http://www.reallusion.com/iclone/help/3DXchange5/Pipeline/05_Export/The_Comparison_of_OBJ_FBX.htm)
+
+### FBX
+
+FBX is a file format owned and developed by Autodesk. It is used to provide interoperability between digital content creation applications such as Autodesk MotionBuilder, Autodesk Maya, and Autodesk 3ds Max. Autodesk MotionBuilder software supports FBX natively, while Autodesk Maya and Autodesk 3ds Max software include FBX plug-ins.
+
+Unreal Engine features an FBX import pipeline which allows simple transfer of content from any number of digital content creation applications that support the format.
+
+The advantages of the Unreal FBX Importer over other importing methods are:
+
+- Static Mesh, Skeletal Mesh, animation, and morph targets in a single file format.
+- Multiple assets/content can be contained in a single file.
+- Import of multiple LODs and Morphs/Blendshapes in one import operation.
+- Materials and textures imported with and applied to meshes.  
+- [FBX Content Pipeline in Unreal Engine 4](https://docs.unrealengine.com/latest/INT/Engine/Content/FBX/index.html)  
+
+### glTF
+		
+- [glTF](https://www.khronos.org/gltf/): efficient runtime 3D asset delivery. Portable 3D graphics transmission Format.    
+glTF™ (GL Transmission Format) is a royalty-free specification for the efficient transmission and loading of 3D scenes and models by applications. glTF minimizes both the size of 3D assets, and the runtime processing needed to unpack and use those assets. glTF defines an extensible, common publishing format for 3D content tools and services that streamlines authoring workflows and enables interoperable use of content across the industry.  
+	- Compact to transmit.  
+	- Fast to load.  
+	- Describes full scenes.   
+	- Runtime neutral.  
+	- Open and extensible.  
+	
+![production](img/glTF.png)	
+	
+- [Physically-Based Rendering: from theory to glTF](https://github.com/moneimne/glTF-Tutorials/tree/master/PBR)  
+
+- [slide: glTF 2.0 Launch
+Web3D Conference, June 2017](https://www.khronos.org/assets/uploads/developers/library/2017-web3d/glTF-2.0-Launch_Jun17.pdf)  
+
+- [glTF Tutorial](https://github.com/KhronosGroup/glTF-Tutorials/blob/master/gltfTutorial/README.md) 
+
+- [WHY WE SHOULD ALL SUPPORT GLTF 2.0 AS THE STANDARD ASSET EXCHANGE FORMAT FOR GAME ENGINES By: Juan Linietsky Aug 03, 2017](https://godotengine.org/article/we-should-all-use-gltf-20-export-3d-assets-game-engines)   
+
+	
+- Maya to glTF	
+	- [Maya2glTF converter](https://github.com/Ziriax/Maya2glTF)  
+	- [Exporting glTF 2.0 from Maya LT](https://www.donmccurdy.com/2017/06/27/exporting-gltf-2-0-from-maya-lt-2/)
+
+- Blendergltf
+	- [Blendergltf](https://github.com/Kupoman/blendergltf) is an addon for Blender that adds the ability to export to the glTF format. This addon started its life as part of the Blender Real TimeEngine addon in order to provide a convenient way of streaming scene data to real time engines. As interest has grown in glTF, the glTF exporting code of the Blender Real Time Engine addon was moved into this repository to be used as both a Python module and a Blender addon.
+
+## Widely used file formats for bitmap textures: PNG or JPG
+### PNG
+PNG stands for “Portable Graphics Format”. It is the most frequently used uncompressed raster image format on the internet. This lossless data compression format was created to replace the Graphics Interchange Format (GIF). PNG file format is an open format with no copyright limitations. Like GIF images, PNG also have the ability to display transparent backgrounds. In addition to that, PNG files are capable of containing 24bit RGB color palettes and greyscale images. 
+
+### JPG
+JPG is a widely used compressed image format for containing digital images. It is the most common image format used in digital cameras, different operating systems and on the Internet. A compression ratio of 10:1 can be applied in JPG images without losing significant details. That results in smaller file size which allows sharing and storing of images easier. The degree of compression in JPG file is adjustable. That means the image data can be saved with Minimum to maximum compression as per users taste. JPG images are great for photographs and realistic paintings. 
+
+### TIF
+TIF (or TIFF) is an image format used for containing high quality graphics. It stands for “Tagged Image File Format” or “Tagged Image Format”. The format was created by Aldus Corporation but Adobe acquired the format later and made subsequent update in this format. TIF file is capable of holding both lossy jpeg compression and lossless image data. It can also contain vector based graphics data. TIF file format is widely supported in image editing applications. 
+
+### TGA
+TGA refers to a raster graphics file format created by Truevision Inc. This format had been used as the native format for TARGA and VISTA graphic cards for IBM PC’s to support Truecolor display. TGA files are common in animation and video industry. This format is not suitable for photographic images but works fine for simpler images like icons, cartoons and line drawings. With TGA format Image data can be stored as raw, or a lossless RLE compression can be used. 
+
+### BMP
+The BMP extension represents Bitmap Image file. BMP file contains raster graphics data which are independent of display devices. That means a BMP image file can be viewed without a graphics adapter. BMP images are generally uncompressed or compressed with a lossless compression method. The files can store two-dimensional digital images with both monochrome and color. Various Color Depths, alpha channels, color profiles and optional data compression are supported in this format. 
+
+____________________________
 
 # Game art production: 3D modeling 
-## Installation Maya
-- Check the [week 2, Maya installation section](https://jiharu.github.io/lowpoly/week01.html)  to find a link to download an educational version of Maya 2019. 
+<!--## Installation Maya
+- Check the [week 2, Maya installation section](https://jiharu.github.io/lowpoly/week01.html)  to find a link to download an educational version of Maya 2019. -->
 
 ## Pre-preparation for modeling	
-### Example
+### An example of images for modeling  
 - [Good quality mobile game animations – A Koukoi Games guide
 by Antti Kananen on 03/14/16](https://www.gamasutra.com/blogs/AnttiKananen/20160314/267983/Good_quality_mobile_game_animations__A_Koukoi_Games_guide.php)  
 	- [Fox Front Image](img/fox_f.png)  
@@ -131,7 +215,7 @@ By Matthias Andre, October 10, 2012](https://www.creativebloq.com/how-make-low-p
 ![tutorial](https://cdn.mos.cms.futurecdn.net/6d227b73c979993073a06857a4f3be57-650-80.jpg)![tutorial](https://cdn.mos.cms.futurecdn.net/0e781ab2c03f980ffc2fb9956c6e064e-650-80.jpg)  
 The game texture and the finished object for a RTS (Real-time strategy) game by Matthias Andre from https://www.creativebloq.com. 
 	
-
+<!--
 # Discussion & group formation
 
 # Assignment detail  
@@ -148,7 +232,7 @@ The game texture and the finished object for a RTS (Real-time strategy) game by 
 Please read ***"Chap. 2. Chapter 2. Modeling Theory"*** from the book: Omernick, Matthew. [Creating the Art of the Game. New Riders, 2004](https://proquestcombo-safaribooksonline-com.ezproxy.torontopubliclibrary.ca/book/animation-and-3d/0735714096), *Online access (Toronto Public Library)*  
 
 ## Action item
-- Complete this Lynda.com tutorial if the content here so far is difficult for you to follow: modeling preparation from [Course: Maya 2018 Essential Training.](https://www.lynda.com/MyPlaylists?playlistId=14973311)  
+- Complete this Lynda.com tutorial if the content here so far is difficult for you to follow: modeling preparation from [Course: Maya 2018 Essential Training.](https://www.lynda.com/MyPlaylists?playlistId=14973311)  -->
 
 </div>
 <div id="wrapper">
